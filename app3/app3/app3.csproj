@@ -67,16 +67,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HospOrders.aspx" />
+    <Content Include="HospRegistration.aspx" />
     <Content Include="Hosp_home.aspx" />
+    <Content Include="Hosp_ViewOrders.aspx" />
     <Content Include="index.html" />
     <Content Include="inner-page.html" />
+    <Content Include="ManfOrders.aspx" />
     <Content Include="ManfRegistration.aspx" />
+    <Content Include="Manf_home.aspx" />
     <Content Include="portfolio-details.html" />
     <Content Include="Start.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HospOrders.aspx.cs">
+      <DependentUpon>HospOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospOrders.aspx.designer.cs">
+      <DependentUpon>HospOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospRegistration.aspx.cs">
+      <DependentUpon>HospRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospRegistration.aspx.designer.cs">
+      <DependentUpon>HospRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Hosp_home.aspx.cs">
       <DependentUpon>Hosp_home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -84,12 +103,33 @@
     <Compile Include="Hosp_home.aspx.designer.cs">
       <DependentUpon>Hosp_home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Hosp_ViewOrders.aspx.cs">
+      <DependentUpon>Hosp_ViewOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hosp_ViewOrders.aspx.designer.cs">
+      <DependentUpon>Hosp_ViewOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManfOrders.aspx.cs">
+      <DependentUpon>ManfOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManfOrders.aspx.designer.cs">
+      <DependentUpon>ManfOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManfRegistration.aspx.cs">
       <DependentUpon>ManfRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManfRegistration.aspx.designer.cs">
       <DependentUpon>ManfRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manf_home.aspx.cs">
+      <DependentUpon>Manf_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manf_home.aspx.designer.cs">
+      <DependentUpon>Manf_home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Start.aspx.cs">
