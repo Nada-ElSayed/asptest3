@@ -1,6 +1,6 @@
 ﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManfRegistration.aspx.cs" Inherits="Reachout1.ManfRegistration" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head runat="server">
