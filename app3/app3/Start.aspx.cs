@@ -70,7 +70,7 @@ namespace Reachout1
                 }
                 else if (type.Value.ToString().Equals("1"))
                 {
-                    Response.Redirect("Hosp_home.aspx", true);
+                    Response.Redirect("Manf_home.aspx", true);
                 }
             }
             else
