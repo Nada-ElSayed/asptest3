@@ -103,17 +103,16 @@
 
                 <table>
                 <tbody>
-                <tr>
+                <tr style="width:100%">
                 
                 <td colspan="2" style="width: 521.1px">
-                    <button class="btn-primary" id="Button1" runat="server" onclick="viewOrders" width="100%"><i class=	"fa fa-medkit"></i> View my Hospital Orders</button>
+                    <button class="btn-primary" id="Button1" runat="server" onserverclick="viewOrders" width="100%"><i class=	"fa fa-medkit"></i> View my Hospital Orders</button>
 
                 </td>   
                 <td></td>
                 <td></td>
                 </tr>
-               
-                <tr>
+                <tr style="width:100%">
                 
                 <td style="height:221.1px; width : 221.1px"> <asp:Button class="btn-primary" ID="Button2" runat="server" Text="Browse Gloves" onclick="findGloves" Width="100%" /></td>
                 <td style="width : 221.1px"> <asp:Button class="btn-primary" ID="Button3" runat="server" Text="Browse Masks" onclick="findMasks" Width="100%"/></td>
@@ -125,7 +124,7 @@
 
 
               <div class="container">
-              <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
+              <asp:Literal ID="liTi" runat="server" Text=" "></asp:Literal>
               <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">
               </div>       
           </div>   

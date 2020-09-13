@@ -35,8 +35,9 @@ namespace Reachout1
             var usr = Session["field1"];
             cmd.Parameters.Add(new SqlParameter("@username", usr));
             conn.Open();
-            SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
+            SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            
             while (rdr.Read())
             {
                 //Get the value of the attribute name in the Company table
@@ -48,9 +49,7 @@ namespace Reachout1
                 string date = (rdr.GetSqlBoolean(rdr.GetOrdinal("date"))).ToString();
 
 
-                liTi.Text = "<h3> Hospital Orders </h3>";
-
-
+                liTi.Text = " ";
 
                 Literal listed = new Literal();
 
@@ -85,7 +84,7 @@ namespace Reachout1
                                 "height:30%" +
                                 "margin:0px;" +
                                 "'>" +
-                                "<button class='btn-primary' id='cancelProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='cancelProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-window-close ' ></i> </button>" +
                                 "</div>" +
                                 "</div>" +
@@ -201,7 +200,7 @@ namespace Reachout1
                                 "margin:0px;" +
                                 "'>" +
                                 //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" +
                                 "</div>" +
                                 "</div>" +
@@ -312,7 +311,7 @@ namespace Reachout1
                                 "margin:0px;" +
                                 "'>" +
                                 //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
                                 "</div>" +
                                 "</div>";
@@ -429,7 +428,7 @@ namespace Reachout1
                                 "margin:0px;" +
                                 "'>" +
                                // "<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
                                 "</div>" +
                                 "</div>";
