@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Drawing;
+
 
 
 
@@ -46,10 +48,55 @@ namespace Reachout1
                 string date = (rdr.GetSqlBoolean(rdr.GetOrdinal("date"))).ToString();
 
 
+                liTi.Text = "<h3> Hospital Orders </h3>";
+
+
+
+                Literal listed = new Literal();
+
+                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                                "<div class='icon-box' " +
+                                            "style='" +
+                                            "padding: 30px;" +
+                                            //"margin: 3px;"+
+                                            "position: relative;" +
+                                            "overflow: hidden;" +
+                                            "background: #fff;" +
+                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                            "transition: all 0.3s ease-in-out;" +
+                                            "height: 90%;' >" +
+                                "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    "font-size: 18px; '>" +
+                                "<a href='' style='color:#111'> Order No. " + orderno + "</a></h4>" +
+                                "<div class='prodDes' style='font-size: 14px;" +
+                                                              "margin-left: 40px;" +
+                                                              "line-height: 24px;" +
+                                                              "margin-bottom: 0;" +
+                                                              "padding-bottom: 1px'> " +
+                                "Status: " + status +
+                                "<p> Total Price: EGP" + price + "</p>" +
+                                "<p> Order Plcaement Date: " + date + " </p>" +
+                                "<p> Product No.: " + prodno + " </p>" +
+                                "</div>" +
+                                "<div style='overflow: auto;" +
+                                "width:100%;" +
+                                "height:30%" +
+                                "margin:0px;" +
+                                "'>" +
+                                "<button class='btn-primary' id='cancelProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-window-close ' ></i> </button>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>";
+
+                prodsList.Controls.Add(listed);
+
 
 
                 //Create a new label and add it to the HTML form
-
+                /*
                 Label lbl_orderno = new Label();
                 lbl_orderno.Text = "<div>" + "   Order No.: " + orderno + "</div>";
                 form1.Controls.Add(lbl_orderno);
@@ -72,7 +119,7 @@ namespace Reachout1
                 Label lbl_date = new Label();
                 lbl_date.Text = "<div>" + "   Order Plcaement Date: " + date + "</div>" + "  <br /> <br />";
                 form1.Controls.Add(lbl_date);
-
+                */
             }
 
         }
@@ -116,9 +163,55 @@ namespace Reachout1
 
 
                 string ProdVendorName = rdr.GetString(rdr.GetOrdinal("name"));
+                liTi.Text = "<h3> Gloves </h3>";
+
+
+
+                Literal listed = new Literal();
+
+                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                                "<div class='icon-box' " +
+                                            "style='" +
+                                            "padding: 30px;" +
+                                            //"margin: 3px;"+
+                                            "position: relative;" +
+                                            "overflow: hidden;" +
+                                            "background: #fff;" +
+                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                            "transition: all 0.3s ease-in-out;" +
+                                            "height: 90%;' >" +
+                                "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    //"margin - bottom: 15px;"+
+                                                    "font-size: 18px; '>" +
+                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
+                                "<div class='prodDes' style='font-size: 14px;" +
+                                                              "margin-left: 40px;" +
+                                                              "line-height: 24px;" +
+                                                              "margin-bottom: 0;" +
+                                                              "padding-bottom: 1px'> " +
+                                availability +
+                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
+                                "<p>" + descrip + "</p>" +
+                                "</div>" +
+                                "<div style='overflow: auto;" +
+                                "width:100%;" +
+                                "height:30%" +
+                                "margin:0px;" +
+                                "'>" +
+                                //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>";
+
+                prodsList.Controls.Add(listed);
 
                 //Create a new label and add it to the HTML form
 
+                /*
                 Label lbl_ProdName = new Label();
                 lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
                 form1.Controls.Add(lbl_ProdName);
@@ -142,7 +235,7 @@ namespace Reachout1
                 // Button AddToCart_btn = new Button();
                 // AddToCart_btn.Text = "   Add to cart: " ; 
                 // form1.Controls.Add(AddToCart_btn);
-
+                */
             }
 
         }
@@ -184,11 +277,50 @@ namespace Reachout1
                 else descrip = "__";
 
 
-                string ProdVendorName = rdr.GetString(rdr.GetOrdinal("name"));
+                liTi.Text = "<h3> Ventilators </h3>";
+                Literal listed = new Literal();
 
+                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                                "<div class='icon-box' " +
+                                            "style='" +
+                                            "padding: 30px;" +
+                                            //"margin: 3px;"+
+                                            "position: relative;" +
+                                            "overflow: hidden;" +
+                                            "background: #fff;" +
+                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                            "transition: all 0.3s ease-in-out;" +
+                                            "height: 90%;' >" +
+                                "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    //"margin - bottom: 15px;"+
+                                                    "font-size: 18px; '>" +
+                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
+                                "<div class='prodDes' style='font-size: 14px;" +
+                                                              "margin-left: 40px;" +
+                                                              "line-height: 24px;" +
+                                                              "margin-bottom: 0;" +
+                                                              "padding-bottom: 1px'> " +
+                                availability +
+                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
+                                "<p>" + descrip + "</p>" +
+                                "</div>" +
+                                "<div style='overflow: auto;" +
+                                "width:100%;" +
+                                "height:30%" +
+                                "margin:0px;" +
+                                "'>" +
+                                //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
+                                "</div>" +
+                                "</div>";
+
+                prodsList.Controls.Add(listed);
                 //Create a new label and add it to the HTML form
 
-                Label lbl_ProdName = new Label();
+                /*Label lbl_ProdName = new Label();
                 lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
                 form1.Controls.Add(lbl_ProdName);
 
@@ -211,6 +343,10 @@ namespace Reachout1
                 // Button AddToCart_btn = new Button();
                 // AddToCart_btn.Text = "   Add to cart: " ; 
                 // form1.Controls.Add(AddToCart_btn);
+                */
+
+
+
 
             }
 
@@ -257,8 +393,50 @@ namespace Reachout1
                 string ProdVendorName = rdr.GetString(rdr.GetOrdinal("name"));
 
                 //Create a new label and add it to the HTML form
+                liTi.Text = "<h3> Masks </h3>";
 
-                Label lbl_ProdName = new Label();
+                Literal listed = new Literal();
+
+                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                                "<div class='icon-box' " +
+                                            "style='" +
+                                            "padding: 30px;" +
+                                            //"margin: 3px;"+
+                                            "position: relative;" +
+                                            "overflow: hidden;" +
+                                            "background: #fff;" +
+                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                            "transition: all 0.3s ease-in-out;" +
+                                            "height: 90%;' >" +
+                                "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    //"margin - bottom: 15px;"+
+                                                    "font-size: 18px; '>" +
+                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
+                                "<div class='prodDes' style='font-size: 14px;" +
+                                                              "margin-left: 40px;" +
+                                                              "line-height: 24px;" +
+                                                              "margin-bottom: 0;" +
+                                                              "padding-bottom: 1px'> " +
+                                availability +
+                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
+                                "<p>" + descrip + "</p>" +
+                                "</div>" +
+                                "<div style='overflow: auto;" +
+                                "width:100%;" +
+                                "height:30%" +
+                                "margin:0px;" +
+                                "'>" +
+                               // "<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
+                                "</div>" +
+                                "</div>";
+
+                prodsList.Controls.Add(listed);
+
+                /*Label lbl_ProdName = new Label();
                 lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
                 form1.Controls.Add(lbl_ProdName);
 
@@ -281,6 +459,7 @@ namespace Reachout1
                 // Button AddToCart_btn = new Button();
                 // AddToCart_btn.Text = "   Add to cart: " ; 
                 // form1.Controls.Add(AddToCart_btn);
+                */
 
             }
 
