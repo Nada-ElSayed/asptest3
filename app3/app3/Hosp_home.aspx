@@ -99,10 +99,9 @@
           
           <form id="form1" runat="server">
 
-              <div >
+              <div style="overflow-x:auto;width:100%" >
 
                 <table>
-                
                 <tbody>
                 <tr>
                 
@@ -123,13 +122,16 @@
                 </tbody>
                 </table>
             </div>
-          </form>
-          
-          <div class="container">
+
+
+              <div class="container">
               <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
               <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">
               </div>       
-          </div>       
+          </div>   
+          </form>
+          
+              
               
 
       </div>
