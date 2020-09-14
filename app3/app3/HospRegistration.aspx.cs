@@ -78,7 +78,7 @@ namespace Reachout1
 
             if (username == "" || password == "" || email == "" || company_name == "")
             {
-                txtMessages.Text = "please fill all boxes";
+                txtWarning.Text = "Please fill in all fields";
             }
             else
             {
@@ -86,7 +86,7 @@ namespace Reachout1
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    txtMessages.Text = ("success");
+                    txtWarning.Text = ("Registration Successful");
                     conn.Close();
 
                 }
@@ -94,11 +94,11 @@ namespace Reachout1
                 {
                     if (ex.Number == 2627 || ex.Number == 2601)
                     {
-                        txtMessages.Text = "this username is already taken";
+                        txtWarning.Text = "This Username is Already Taken";
                     }
                     else
                     {
-                        txtMessages.Text = ("please choose another username (below 30 characters).error:" + ex.Number);
+                        txtWarning.Text = ("Please choose another username (below 30 characters).error:" + ex.Number);
                     }
 
                 }
