@@ -70,6 +70,7 @@
     <Content Include="HospOrders.aspx" />
     <Content Include="HospRegistration.aspx" />
     <Content Include="Hosp_home.aspx" />
+    <Content Include="Hosp_product_info.aspx" />
     <Content Include="Hosp_ViewOrders.aspx" />
     <Content Include="index.html" />
     <Content Include="inner-page.html" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="Hosp_home.aspx.designer.cs">
       <DependentUpon>Hosp_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hosp_product_info.aspx.cs">
+      <DependentUpon>Hosp_product_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hosp_product_info.aspx.designer.cs">
+      <DependentUpon>Hosp_product_info.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hosp_ViewOrders.aspx.cs">
       <DependentUpon>Hosp_ViewOrders.aspx</DependentUpon>

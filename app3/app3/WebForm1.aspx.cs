@@ -13,5 +13,18 @@ namespace app3
         {
 
         }
+        void ButtonClick(Object sender, EventArgs e)
+        {
+
+            if (Page.IsValid)
+            {
+                Label1.Text = "Page is valid.";
+            }
+            else
+            {
+                Label1.Text = "Page is not valid!!";
+            }
+
+        }
     }
 }

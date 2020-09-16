@@ -45,7 +45,7 @@ namespace Reachout1
 
             SqlParameter success = cmd.Parameters.Add("@success", SqlDbType.Int);
             success.Direction = ParameterDirection.Output;
-
+            
             //Executing the SQLCommand
             conn.Open();
             cmd.ExecuteNonQuery();
@@ -64,11 +64,11 @@ namespace Reachout1
 
                 //To navigate to another webpage
                //____________________dont forget______________-_-___---___-
-                  if (type.Value.ToString().Equals("1"))
+                  if (type.Value.ToString().Equals("0"))
                 {
                     Response.Redirect("Hosp_home.aspx", true);
                 }
-                else if (type.Value.ToString().Equals("0"))
+                else if (type.Value.ToString().Equals("1"))
                 {
                     Response.Redirect("Manf_home.aspx", true);
                 }

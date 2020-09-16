@@ -13,14 +13,16 @@ using System.Drawing;
 
 
 namespace Reachout1
-{
+{ 
     public partial class ViewProd : System.Web.UI.Page
     {
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Response.Write(Session["field1"]);
-            Response.Write(Session["field2"]);
-            Response.Write(Session["field3"]);
+          //  Response.Write(Session["field2"]);
+           // Response.Write(Session["field3"]);
 
         }
 
@@ -46,7 +48,7 @@ namespace Reachout1
                 string price = (rdr.GetSqlDecimal(rdr.GetOrdinal("total_price"))).ToString();
                 int prodno = rdr.GetInt32(rdr.GetOrdinal("product_id"));
 
-                string date = (rdr.GetSqlBoolean(rdr.GetOrdinal("date"))).ToString();
+                string date = (rdr.GetSqlDateTime(rdr.GetOrdinal("date"))).ToString();
 
 
                 liTi.Text = " ";
@@ -200,41 +202,20 @@ namespace Reachout1
                                 "margin:0px;" +
                                 "'>" +
                                 //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" +
                                 "</div>" +
                                 "</div>" +
                                 "</div>";
 
+                Button MyButton = new Button();
+                MyButton.CssClass = "btn-primary";
+                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.UseSubmitBehavior = false;
+                MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+
                 prodsList.Controls.Add(listed);
-
-                //Create a new label and add it to the HTML form
-
-                /*
-                Label lbl_ProdName = new Label();
-                lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
-                form1.Controls.Add(lbl_ProdName);
-
-
-                Label lbl_avail = new Label();
-                lbl_avail.Text = "<div>" + "    " + availability + "</div>";
-                form1.Controls.Add(lbl_avail);
-
-
-                Label lbl_price = new Label();
-                lbl_price.Text = "<div>" + "   unit price: " + Prodprice + "</div>";
-                form1.Controls.Add(lbl_price);
-
-
-                Label lbl_descrip = new Label();
-                lbl_descrip.Text = "<div>" + "   description: " + descrip + "</div>" + "  <br /> <br />";
-                form1.Controls.Add(lbl_descrip);
-
-
-                // Button AddToCart_btn = new Button();
-                // AddToCart_btn.Text = "   Add to cart: " ; 
-                // form1.Controls.Add(AddToCart_btn);
-                */
+                prodsList.Controls.Add(MyButton);
             }
 
         }
@@ -311,39 +292,19 @@ namespace Reachout1
                                 "margin:0px;" +
                                 "'>" +
                                 //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
+                                "<button class='btn-primary' id='orderProduct' runat='server'  onserverclick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
                                 "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
                                 "</div>" +
                                 "</div>";
 
+                Button MyButton = new Button();
+                MyButton.CssClass = "btn-primary";
+                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.UseSubmitBehavior = false;
+                MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+
                 prodsList.Controls.Add(listed);
-                //Create a new label and add it to the HTML form
-
-                /*Label lbl_ProdName = new Label();
-                lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
-                form1.Controls.Add(lbl_ProdName);
-
-
-                Label lbl_avail = new Label();
-                lbl_avail.Text = "<div>" + "    " + availability + "</div>";
-                form1.Controls.Add(lbl_avail);
-
-
-                Label lbl_price = new Label();
-                lbl_price.Text = "<div>" + "   unit price: " + Prodprice + "</div>";
-                form1.Controls.Add(lbl_price);
-
-
-                Label lbl_descrip = new Label();
-                lbl_descrip.Text = "<div>" + "   description: " + descrip + "</div>" + "  <br /> <br />";
-                form1.Controls.Add(lbl_descrip);
-
-
-                // Button AddToCart_btn = new Button();
-                // AddToCart_btn.Text = "   Add to cart: " ; 
-                // form1.Controls.Add(AddToCart_btn);
-                */
-
+                prodsList.Controls.Add(MyButton);
 
 
 
@@ -427,41 +388,34 @@ namespace Reachout1
                                 "height:30%" +
                                 "margin:0px;" +
                                 "'>" +
-                               // "<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
+                                // "<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
+                                "<asp:Button class='btn-primary' id='orderProduct' runat='server'  onClick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>" +
+                                //"<i class='fa fa-cart-plus' >" + "</i> </button>" + 
+                                "</div>" +
                                 "</div>" +
                                 "</div>";
 
+                    Button MyButton = new Button();
+                MyButton.CssClass = "btn-primary";
+                  //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.UseSubmitBehavior = false;
+                MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+
                 prodsList.Controls.Add(listed);
+                prodsList.Controls.Add(MyButton);
 
-                /*Label lbl_ProdName = new Label();
-                lbl_ProdName.Text = "<div>" + "   name: " + ProdName + "</div>";
-                form1.Controls.Add(lbl_ProdName);
-
-
-                Label lbl_avail = new Label();
-                lbl_avail.Text = "<div>" + "    " + availability + "</div>";
-                form1.Controls.Add(lbl_avail);
-
-
-                Label lbl_price = new Label();
-                lbl_price.Text = "<div>" + "   unit price: " + Prodprice + "</div>";
-                form1.Controls.Add(lbl_price);
-
-
-                Label lbl_descrip = new Label();
-                lbl_descrip.Text = "<div>" + "   description: " + descrip + "</div>" + "  <br /> <br />";
-                form1.Controls.Add(lbl_descrip);
-
-
-                // Button AddToCart_btn = new Button();
-                // AddToCart_btn.Text = "   Add to cart: " ; 
-                // form1.Controls.Add(AddToCart_btn);
-                */
-
+                
             }
 
+        }
+        protected void viewProdInfo(object sender, EventArgs e)
+        {
+            Response.Write("here!");
+          // LinkButton lnk = sender as LinkButton;
+           //String Value1 = lnk.Attributes["pid"].ToString();
+
+            Response.Redirect("Hosp_product_info.aspx?pid="+ 3, true);
         }
 
     }
