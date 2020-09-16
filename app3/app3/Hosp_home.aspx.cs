@@ -49,43 +49,40 @@ namespace Reachout1
                 string date = (rdr.GetSqlDateTime(rdr.GetOrdinal("date"))).ToString();
 
 
-                liTi.Text = " ";
-
+                liTi.Text = "Placed Orders";
                 Button MyButton = new Button();
                 MyButton.CssClass = "btn-primary";
-                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
                 MyButton.CommandName = "Click";
                 MyButton.CommandArgument = orderno.ToString();
                 MyButton.Command += cancelOrder;
-                prodsList.Controls.Add(MyButton);
+                MyButton.Text = "Order Details";
+                Panel card = new Panel();
+                card.CssClass = "icon-box";
+
+                Label lbl_orderno = new Label();
+                lbl_orderno.Text = "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    "font-size: 18px;'>" + orderno + "</h4>";
+                card.Controls.Add(lbl_orderno);
+                Label lbl_status = new Label();
+                lbl_status.Text = "<div class='des'>Status: " + status + "</div>";
+                card.Controls.Add(lbl_status);
+                Label lbl_price = new Label();
+                lbl_price.Text = "<div class='des'>" + "Unit Price: EGP" + price + "</div>";
+                card.Controls.Add(lbl_price);
+                Label lbl_prodno = new Label();
+                lbl_prodno.Text = "<div class='des'>" + "Product No.: " + prodno + "</div> </br>";
+                card.Controls.Add(lbl_prodno);
+                Label lbl_date = new Label();
+                lbl_date.Text = "<div class='des'>" + "Placement Date: " + date + "</div> </br>";
+                card.Controls.Add(lbl_date);
+                card.Controls.Add(MyButton);
+
+                prodsList.Controls.Add(card);
             }
 
-            //Create a new label and add it to the HTML form
-            /*
-            Label lbl_orderno = new Label();
-            lbl_orderno.Text = "<div>" + "   Order No.: " + orderno + "</div>";
-            form1.Controls.Add(lbl_orderno);
-
-
-            Label lbl_status = new Label();
-            lbl_status.Text = "<div>" + "   Order Status:  " + status + "</div>";
-            form1.Controls.Add(lbl_status);
-
-
-            Label lbl_price = new Label();
-            lbl_price.Text = "<div>" + "   Total Price: " + price + "</div>";
-            form1.Controls.Add(lbl_price);
-
-
-            Label lbl_prodno = new Label();
-            lbl_prodno.Text = "<div>" + "   Produt no.: " + prodno + "</div>" + "  <br /> <br />";
-            form1.Controls.Add(lbl_prodno);
-
-            Label lbl_date = new Label();
-            lbl_date.Text = "<div>" + "   Order Plcaement Date: " + date + "</div>" + "  <br /> <br />";
-            form1.Controls.Add(lbl_date);
-            */
-
+          
 
         }
 
