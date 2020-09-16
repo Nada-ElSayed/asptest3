@@ -1070,7 +1070,7 @@ section {
     background: #fff;
     box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
     transition: all 0.3s ease-in-out;
-    margin: 25px;
+    margin: 20px;
     min-width: 320px;
     padding-right: 15px;
     padding-left: 15px;
@@ -1087,7 +1087,9 @@ section {
 #prodsList {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .des {

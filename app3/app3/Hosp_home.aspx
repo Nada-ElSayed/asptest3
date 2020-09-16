@@ -124,6 +124,8 @@
 
 
               <div class="container">
+                   <asp:Label ID="txtWarning" runat="server" Text="" Style="font-family:Helvetica, sans-serif;font-size: 13px; color: red;"></asp:Label>
+
                   <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
                   <asp:Panel ID="prodsList" runat="server"></asp:Panel>
                          

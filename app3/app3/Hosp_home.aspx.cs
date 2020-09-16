@@ -21,8 +21,6 @@ namespace Reachout1
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           
-
 
             }
 
@@ -333,7 +331,7 @@ namespace Reachout1
             catch(Exception ex)
             {
                 
-                Label1.Text = ex.Message;
+                txtWarning.Text = ex.Message;
             }
             
         }
