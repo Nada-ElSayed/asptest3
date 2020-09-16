@@ -1061,3 +1061,39 @@ section {
   }
 }
 
+
+
+.icon-box {
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin: 25px;
+    min-width: 320px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+.btn-info {
+    margin-top: 0px;
+    float: right;
+    background-color: #007bff;
+}
+
+
+#prodsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.des {
+    font-size: 14px;
+    margin-left: 40px;
+    line-height: 24px;
+    margin-bottom: 0;
+    padding-bottom: 1px
+}

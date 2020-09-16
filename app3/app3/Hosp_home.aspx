@@ -124,11 +124,11 @@
 
 
               <div class="container">
-              <asp:Literal ID="liTi" runat="server" Text=" "></asp:Literal>
-              <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">
-              </div>  
+                  <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
+                  <asp:Panel ID="prodsList" runat="server"></asp:Panel>
+                         
+                
                   
-                  <asp:Label ID="Label1" runat="server" ></asp:Label>
                   
           </div>   
           </form>

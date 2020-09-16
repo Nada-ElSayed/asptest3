@@ -21,6 +21,13 @@ namespace Reachout1
         protected void Page_Load(object sender, EventArgs e)
         {
 
+           
+
+
+            }
+
+            public void viewOrders(object sender, EventArgs e)
+        {
             string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -46,89 +53,41 @@ namespace Reachout1
 
                 liTi.Text = " ";
 
-                Literal listed = new Literal();
-
-                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
-                                "<div class='icon-box' " +
-                                            "style='" +
-                                            "padding: 30px;" +
-                                            //"margin: 3px;"+
-                                            "position: relative;" +
-                                            "overflow: hidden;" +
-                                            "background: #fff;" +
-                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
-                                            "transition: all 0.3s ease-in-out;" +
-                                            "height: 90%;' >" +
-                                "<h4 class='prodName' style='" +
-                                                    "margin-left: 40px;" +
-                                                    "font-weight: 700;" +
-                                                    "font-size: 18px; '>" +
-                                "<a href='' style='color:#111'> Order No. " + orderno + "</a></h4>" +
-                                "<div class='prodDes' style='font-size: 14px;" +
-                                                              "margin-left: 40px;" +
-                                                              "line-height: 24px;" +
-                                                              "margin-bottom: 0;" +
-                                                              "padding-bottom: 1px'> " +
-                                "Status: " + status +
-                                "<p> Total Price: EGP" + price + "</p>" +
-                                "<p> Order Plcaement Date: " + date + " </p>" +
-                                "<p> Product No.: " + prodno + " </p>" +
-                                "</div>" +
-                                "<div style='overflow: auto;" +
-                                "width:100%;" +
-                                "height:30%" +
-                                "margin:0px;" +
-                                "'>" +
-                                "<button class='btn-primary' id='cancelProduct' runat='server' OnClientClick='return false;' onServerClick='cancelOrder()' style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>" +
-                                "<i class='fa fa-window-close ' ></i> </button>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>";
-
                 Button MyButton = new Button();
                 MyButton.CssClass = "btn-primary";
                 //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
                 MyButton.CommandName = "Click";
                 MyButton.CommandArgument = orderno.ToString();
                 MyButton.Command += cancelOrder;
-                prodsList.Controls.Add(listed);
                 prodsList.Controls.Add(MyButton);
             }
 
-
-            }
-
-            public void viewOrders(object sender, EventArgs e)
-        {
-
-
-                //Create a new label and add it to the HTML form
-                /*
-                Label lbl_orderno = new Label();
-                lbl_orderno.Text = "<div>" + "   Order No.: " + orderno + "</div>";
-                form1.Controls.Add(lbl_orderno);
+            //Create a new label and add it to the HTML form
+            /*
+            Label lbl_orderno = new Label();
+            lbl_orderno.Text = "<div>" + "   Order No.: " + orderno + "</div>";
+            form1.Controls.Add(lbl_orderno);
 
 
-                Label lbl_status = new Label();
-                lbl_status.Text = "<div>" + "   Order Status:  " + status + "</div>";
-                form1.Controls.Add(lbl_status);
+            Label lbl_status = new Label();
+            lbl_status.Text = "<div>" + "   Order Status:  " + status + "</div>";
+            form1.Controls.Add(lbl_status);
 
 
-                Label lbl_price = new Label();
-                lbl_price.Text = "<div>" + "   Total Price: " + price + "</div>";
-                form1.Controls.Add(lbl_price);
+            Label lbl_price = new Label();
+            lbl_price.Text = "<div>" + "   Total Price: " + price + "</div>";
+            form1.Controls.Add(lbl_price);
 
 
-                Label lbl_prodno = new Label();
-                lbl_prodno.Text = "<div>" + "   Produt no.: " + prodno + "</div>" + "  <br /> <br />";
-                form1.Controls.Add(lbl_prodno);
+            Label lbl_prodno = new Label();
+            lbl_prodno.Text = "<div>" + "   Produt no.: " + prodno + "</div>" + "  <br /> <br />";
+            form1.Controls.Add(lbl_prodno);
 
-                Label lbl_date = new Label();
-                lbl_date.Text = "<div>" + "   Order Plcaement Date: " + date + "</div>" + "  <br /> <br />";
-                form1.Controls.Add(lbl_date);
-                */
-            
+            Label lbl_date = new Label();
+            lbl_date.Text = "<div>" + "   Order Plcaement Date: " + date + "</div>" + "  <br /> <br />";
+            form1.Controls.Add(lbl_date);
+            */
+
 
         }
 
@@ -173,56 +132,31 @@ namespace Reachout1
                 string ProdVendorName = rdr.GetString(rdr.GetOrdinal("name"));
                 liTi.Text = "<h3> Gloves </h3>";
 
-
-
-                Literal listed = new Literal();
-
-                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
-                                "<div class='icon-box' " +
-                                            "style='" +
-                                            "padding: 30px;" +
-                                            //"margin: 3px;"+
-                                            "position: relative;" +
-                                            "overflow: hidden;" +
-                                            "background: #fff;" +
-                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
-                                            "transition: all 0.3s ease-in-out;" +
-                                            "height: 90%;' >" +
-                                "<h4 class='prodName' style='" +
-                                                    "margin-left: 40px;" +
-                                                    "font-weight: 700;" +
-                                                    //"margin - bottom: 15px;"+
-                                                    "font-size: 18px; '>" +
-                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
-                                "<div class='prodDes' style='font-size: 14px;" +
-                                                              "margin-left: 40px;" +
-                                                              "line-height: 24px;" +
-                                                              "margin-bottom: 0;" +
-                                                              "padding-bottom: 1px'> " +
-                                availability +
-                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
-                                "<p>" + descrip + "</p>" +
-                                "</div>" +
-                                "<div style='overflow: auto;" +
-                                "width:100%;" +
-                                "height:30%" +
-                                "margin:0px;" +
-                                "'>" +
-                                //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server' onserverclick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>";
-
+                Panel card = new Panel();
+                card.CssClass = "icon-box";
                 Button MyButton = new Button();
-                MyButton.CssClass = "btn-primary";
-                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.CssClass = "btn-primary btn-info";
                 MyButton.UseSubmitBehavior = false;
                 MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+                MyButton.Text = "Info";
+                Label lbl_ProdName = new Label();
+                lbl_ProdName.Text = "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    "font-size: 18px;'>" + ProdName + "</h4>";
+                card.Controls.Add(lbl_ProdName);
+                Label lbl_avail = new Label();
+                lbl_avail.Text = "<div class='des'>" + availability + "</div>";
+                card.Controls.Add(lbl_avail);
+                Label lbl_price = new Label();
+                lbl_price.Text = "<div class='des'>" + "Unit Price: EGP" + Prodprice + "</div>";
+                card.Controls.Add(lbl_price);
+                Label lbl_descrip = new Label();
+                lbl_descrip.Text = "<div class='des'>" + "description: " + descrip + "</div> </br>";
+                card.Controls.Add(lbl_descrip);
+                card.Controls.Add(MyButton);
 
-                prodsList.Controls.Add(listed);
-                prodsList.Controls.Add(MyButton);
+                prodsList.Controls.Add(card);
             }
 
         }
@@ -265,54 +199,31 @@ namespace Reachout1
 
 
                 liTi.Text = "<h3> Ventilators </h3>";
-                Literal listed = new Literal();
-
-                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
-                                "<div class='icon-box' " +
-                                            "style='" +
-                                            "padding: 30px;" +
-                                            //"margin: 3px;"+
-                                            "position: relative;" +
-                                            "overflow: hidden;" +
-                                            "background: #fff;" +
-                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
-                                            "transition: all 0.3s ease-in-out;" +
-                                            "height: 90%;' >" +
-                                "<h4 class='prodName' style='" +
-                                                    "margin-left: 40px;" +
-                                                    "font-weight: 700;" +
-                                                    //"margin - bottom: 15px;"+
-                                                    "font-size: 18px; '>" +
-                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
-                                "<div class='prodDes' style='font-size: 14px;" +
-                                                              "margin-left: 40px;" +
-                                                              "line-height: 24px;" +
-                                                              "margin-bottom: 0;" +
-                                                              "padding-bottom: 1px'> " +
-                                availability +
-                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
-                                "<p>" + descrip + "</p>" +
-                                "</div>" +
-                                "<div style='overflow: auto;" +
-                                "width:100%;" +
-                                "height:30%" +
-                                "margin:0px;" +
-                                "'>" +
-                                //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<button class='btn-primary' id='orderProduct' runat='server'  onserverclick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-cart-plus' ></i> </button>" + "</div>" +
-                                "</div>" +
-                                "</div>";
-
+                Panel card = new Panel();
+                card.CssClass = "icon-box";
                 Button MyButton = new Button();
-                MyButton.CssClass = "btn-primary";
-                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.CssClass = "btn-primary btn-info";
                 MyButton.UseSubmitBehavior = false;
                 MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+                MyButton.Text = "Info";
+                Label lbl_ProdName = new Label();
+                lbl_ProdName.Text = "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    "font-size: 18px;'>" + ProdName + "</h4>";
+                card.Controls.Add(lbl_ProdName);
+                Label lbl_avail = new Label();
+                lbl_avail.Text = "<div class='des'>" + availability + "</div>";
+                card.Controls.Add(lbl_avail);
+                Label lbl_price = new Label();
+                lbl_price.Text = "<div class='des'>" + "Unit Price: EGP" + Prodprice + "</div>";
+                card.Controls.Add(lbl_price);
+                Label lbl_descrip = new Label();
+                lbl_descrip.Text = "<div class='des'>" + "description: " + descrip + "</div> </br>";
+                card.Controls.Add(lbl_descrip);
+                card.Controls.Add(MyButton);
 
-                prodsList.Controls.Add(listed);
-                prodsList.Controls.Add(MyButton);
-
+                prodsList.Controls.Add(card);
 
 
             }
@@ -361,58 +272,33 @@ namespace Reachout1
 
                 //Create a new label and add it to the HTML form
                 liTi.Text = "<h3> Masks </h3>";
-
-                Literal listed = new Literal();
-
-                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
-                                "<div class='icon-box' " +
-                                            "style='" +
-                                            "padding: 30px;" +
-                                            //"margin: 3px;"+
-                                            "position: relative;" +
-                                            "overflow: hidden;" +
-                                            "background: #fff;" +
-                                            "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
-                                            "transition: all 0.3s ease-in-out;" +
-                                            "height: 90%;' >" +
-                                "<h4 class='prodName' style='" +
-                                                    "margin-left: 40px;" +
-                                                    "font-weight: 700;" +
-                                                    //"margin - bottom: 15px;"+
-                                                    "font-size: 18px; '>" +
-                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
-                                "<div class='prodDes' style='font-size: 14px;" +
-                                                              "margin-left: 40px;" +
-                                                              "line-height: 24px;" +
-                                                              "margin-bottom: 0;" +
-                                                              "padding-bottom: 1px'> " +
-                                availability +
-                                "<p> Unit Price: EGP" + Prodprice + "</p>" +
-                                "<p>" + descrip + "</p>" +
-                                "</div>" +
-                                "<div style='overflow: auto;" +
-                                "width:100%;" +
-                                "height:30%" +
-                                "margin:0px;" +
-                                "'>" +
-                                // "<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                "<asp:Button class='btn-primary' id='orderProduct' runat='server'  onClick='viewProdInfo'  style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>" +
-                                //"<i class='fa fa-cart-plus' >" + "</i> </button>" + 
-                                "</div>" +
-                                "</div>" +
-                                "</div>";
-
-                    Button MyButton = new Button();
-                MyButton.CssClass = "btn-primary";
-                  //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                Panel card = new Panel();
+                card.CssClass = "icon-box";
+                Button MyButton = new Button();
+                MyButton.CssClass = "btn-primary btn-info";
                 MyButton.UseSubmitBehavior = false;
                 MyButton.PostBackUrl = "Hosp_product_info.aspx?pid=" + Prodserialno.ToString();
+                MyButton.Text = "Info";
+                Label lbl_ProdName = new Label();
+                lbl_ProdName.Text = "<h4 class='prodName' style='" +
+                                                    "margin-left: 40px;" +
+                                                    "font-weight: 700;" +
+                                                    "font-size: 18px;'>" + ProdName + "</h4>";
+                card.Controls.Add(lbl_ProdName);
+                Label lbl_avail = new Label();
+                lbl_avail.Text = "<div class='des'>" + availability + "</div>";
+                card.Controls.Add(lbl_avail);
+                Label lbl_price = new Label();
+                lbl_price.Text = "<div class='des'>" + "Unit Price: EGP" + Prodprice + "</div>";
+                card.Controls.Add(lbl_price);
+                Label lbl_descrip = new Label();
+                lbl_descrip.Text = "<div class='des'>" + "description: " + descrip + "</div> </br>";
+                card.Controls.Add(lbl_descrip);
+                card.Controls.Add(MyButton);
 
-                prodsList.Controls.Add(listed);
-                prodsList.Controls.Add(MyButton);
+                prodsList.Controls.Add(card);
 
-                
+
             }
 
         }
