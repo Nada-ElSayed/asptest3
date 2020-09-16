@@ -20,14 +20,7 @@ namespace Reachout1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Write(Session["field1"]);
-          //  Response.Write(Session["field2"]);
-           // Response.Write(Session["field3"]);
 
-        }
-
-        public void viewOrders(object sender, EventArgs e)
-        {
             string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -39,7 +32,7 @@ namespace Reachout1
             conn.Open();
 
             SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            
+
             while (rdr.Read())
             {
                 //Get the value of the attribute name in the Company table
@@ -86,14 +79,28 @@ namespace Reachout1
                                 "height:30%" +
                                 "margin:0px;" +
                                 "'>" +
-                                "<button class='btn-primary' id='cancelProduct' runat='server' onserverclick=''  style='display:flex;align-items: center;justify-content:center;" +
-                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'><i class='fa fa-window-close ' ></i> </button>" +
+                                "<button class='btn-primary' id='cancelProduct' runat='server' OnClientClick='return false;' onServerClick='cancelOrder()' style='display:flex;align-items: center;justify-content:center;" +
+                                "font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>" +
+                                "<i class='fa fa-window-close ' ></i> </button>" +
                                 "</div>" +
                                 "</div>" +
                                 "</div>";
 
+                Button MyButton = new Button();
+                MyButton.CssClass = "btn-primary";
+                //  = "display:flex;align-items: center;justify-content:center; font-size: 24px;width: 40px;height: 40px;margin-top:0px;float:right;'/>";
+                MyButton.CommandName = "Click";
+                MyButton.CommandArgument = orderno.ToString();
+                MyButton.Command += cancelOrder;
                 prodsList.Controls.Add(listed);
+                prodsList.Controls.Add(MyButton);
+            }
 
+
+            }
+
+            public void viewOrders(object sender, EventArgs e)
+        {
 
 
                 //Create a new label and add it to the HTML form
@@ -121,7 +128,7 @@ namespace Reachout1
                 lbl_date.Text = "<div>" + "   Order Plcaement Date: " + date + "</div>" + "  <br /> <br />";
                 form1.Controls.Add(lbl_date);
                 */
-            }
+            
 
         }
 
@@ -412,11 +419,40 @@ namespace Reachout1
         protected void viewProdInfo(object sender, EventArgs e)
         {
             Response.Write("here!");
-          // LinkButton lnk = sender as LinkButton;
-           //String Value1 = lnk.Attributes["pid"].ToString();
+           LinkButton lnk = sender as LinkButton;
+           String Value1 = lnk.Attributes["pid"].ToString();
 
-            Response.Redirect("Hosp_product_info.aspx?pid="+ 3, true);
+            Response.Redirect("Hosp_product_info.aspx?pid="+ Value1, true);
         }
+
+        protected void cancelOrder(object sender, CommandEventArgs e)
+        {
+
+            Button btn = (Button)sender;
+            string order_id = Convert.ToString( e.CommandArgument);
+
+            string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            SqlCommand cmd = new SqlCommand("cancelOrder", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@orderId", order_id));
+            cmd.Parameters.Add(new SqlParameter("@username",Session["field1"]));
+            conn.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+                Response.Redirect(Request.RawUrl);
+            }
+            catch(Exception ex)
+            {
+                
+                Label1.Text = ex.Message;
+            }
+            
+        }
+
+
 
     }
 }
