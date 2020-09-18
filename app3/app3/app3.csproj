@@ -70,6 +70,7 @@
     <Content Include="HospOrders.aspx" />
     <Content Include="HospRegistration.aspx" />
     <Content Include="Hosp_home.aspx" />
+    <Content Include="Hosp_order_details.aspx" />
     <Content Include="Hosp_product_info.aspx" />
     <Content Include="Hosp_ViewOrders.aspx" />
     <Content Include="index.html" />
@@ -77,6 +78,7 @@
     <Content Include="ManfOrders.aspx" />
     <Content Include="ManfRegistration.aspx" />
     <Content Include="Manf_home.aspx" />
+    <Content Include="Manf_order_details.aspx" />
     <Content Include="portfolio-details.html" />
     <Content Include="Start.aspx" />
     <Content Include="Web.config" />
@@ -103,6 +105,13 @@
     </Compile>
     <Compile Include="Hosp_home.aspx.designer.cs">
       <DependentUpon>Hosp_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hosp_order_details.aspx.cs">
+      <DependentUpon>Hosp_order_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hosp_order_details.aspx.designer.cs">
+      <DependentUpon>Hosp_order_details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hosp_product_info.aspx.cs">
       <DependentUpon>Hosp_product_info.aspx</DependentUpon>
@@ -138,6 +147,13 @@
     </Compile>
     <Compile Include="Manf_home.aspx.designer.cs">
       <DependentUpon>Manf_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manf_order_details.aspx.cs">
+      <DependentUpon>Manf_order_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manf_order_details.aspx.designer.cs">
+      <DependentUpon>Manf_order_details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Start.aspx.cs">
