@@ -28,6 +28,9 @@ namespace app3
             {
                 Response.Write("NO DATA PROVIDED OR COULD NOT BE READ");
             }
+            string [] categories = { "Ventilator", "Mask", "Gloves" };
+            Dropcateg.DataSource = categories;
+            Dropcateg.DataBind();
 
             string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
@@ -86,8 +89,6 @@ namespace app3
                 }
 
                 conn.Close();
-                RangeValidator1.MaximumValue = amount + "";
-                RangeValidator1.Text = "The value must be from 1 to " + amount;
                 Literal listed = new Literal();
 
                 listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
@@ -133,35 +134,58 @@ namespace app3
             }
 
         }
-        protected void placeOrder(object sender, EventArgs e)
+        protected void editProduct(object sender, EventArgs e)
         {
 
-
-            RangeValidator1.MaximumValue = amount + "";
-
+            
             string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
 
 
-            SqlCommand cmd = new SqlCommand("placeOrder", conn);
+            SqlCommand cmd = new SqlCommand("EditProduct", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@username", Session["field1"]));
-            cmd.Parameters.Add(new SqlParameter("@quantity", orderamountTXT.Text));
-            cmd.Parameters.Add(new SqlParameter("@product", Prodserialno));
+            cmd.Parameters.Add(new SqlParameter("@pid", Prodserialno));
+            cmd.Parameters.Add(new SqlParameter("@pname", Textpname.Text));
+            cmd.Parameters.Add(new SqlParameter("@info", Textinfo.Text));
+            cmd.Parameters.Add(new SqlParameter("@unit_price", Textunit_price.Text));
+            cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
+            cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+
+            if (Dropcateg.SelectedValue == "Gloves")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "GLOV"));
+
+            }
+            if (Dropcateg.SelectedValue == "Mask")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "MASK"));
+
+            }
+            if (Dropcateg.SelectedValue == "Ventilator")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "VENT"));
+
+            }
 
             conn.Open();
-            Label1.Text = "Order Placed Successfully!";
+            Label1.Text = "Product Updated Successfully!";
             try
             {
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
             }
             catch (Exception ex)
             {
                 Label1.Text = ex.Message;
             }
-            //  Response.Redirect(Request.RawUrl);
 
 
+
+        }
+
+        protected void revertChanges(object sender, EventArgs e)
+        {
 
         }
 

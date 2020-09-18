@@ -34,17 +34,30 @@
               <div>
                 <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
                 </div>
-      
-                <asp:Label ID="Label1" runat="server" Text="Enter Quantity to Order:"></asp:Label>
-                <br />
-                <asp:TextBox ID="orderamountTXT"  runat="server" ></asp:TextBox>
-                <br />
-                <asp:RangeValidator ID="RangeValidator1" ControlToValidate="orderamountTXT" Type="Integer" runat="server" ErrorMessage="RangeValidator" MinimumValue="1" 
-                EnableClientScript="false">       </asp:RangeValidator>
-                
-                <asp:Button class="btn-primary" ID="Button1" runat="server" Text="Place Order" onClick="placeOrder"/>
-                <asp:Label ID="Label2" runat="server" ></asp:Label>
-            </div>    
+                  <br />
+                  <asp:Label ID="Label1" runat="server" ></asp:Label>
+                  <br />
+                  <asp:Label ID="Label2" runat="server" Text="Product Name"></asp:Label>
+                  <asp:TextBox ID="Textpname" runat="server"></asp:TextBox>
+                  <br />
+                  <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
+                  <asp:TextBox ID="Textinfo" runat="server"></asp:TextBox>
+                  <br />
+                  <asp:Label ID="Label4" runat="server" Text="Unit Price"></asp:Label>
+                  <asp:TextBox ID="Textunit_price" runat="server"></asp:TextBox>
+                  <br />
+                  <asp:Label ID="Label5" runat="server" Text="Category"></asp:Label>
+                  <asp:DropDownList ID="Dropcateg" runat="server"></asp:DropDownList>
+                  <br />
+                  <asp:Label ID="Label6" runat="server" Text="Amount available"></asp:Label>
+                  <asp:TextBox ID="Textamount" runat="server"></asp:TextBox>
+                  <br />
+                  <asp:Label ID="Label7" runat="server" Text="Global Trade Number"></asp:Label>
+                  <asp:TextBox ID="Textgtin" runat="server"></asp:TextBox>
+                  <br />
+                  <asp:Button ID="Button1" runat="server" Text="Submit Changes" OnClick="editProduct"/>
+                  <asp:Button ID="Button2" runat="server" Text="Revert Changes" OnClick="revertChanges"/>
+              </div>    
           </div> 
 
         
