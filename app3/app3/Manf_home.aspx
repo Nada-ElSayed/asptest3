@@ -46,6 +46,18 @@
             <asp:Button ID="Button2" runat="server" Text="View My Orders" OnClick="viewMyOrders"/>
             <asp:Button ID="Button3" runat="server" Text="Add a New Product" OnClick="addProduct"/>
 
+
+            <div class="container">
+                   <asp:Label ID="txtWarning" runat="server" Text="" Style="font-family:Helvetica, sans-serif;font-size: 13px; color: red;"></asp:Label>
+
+                  <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
+                  <asp:Panel ID="prodsList" runat="server"></asp:Panel>
+                         
+                
+                  
+                  
+          </div>
+
             <asp:TextBox ID="txt_prod_name" runat="server"></asp:TextBox>
             <asp:TextBox ID="txt_desc" runat="server"></asp:TextBox>
             <asp:TextBox ID="txt_price" runat="server"></asp:TextBox>

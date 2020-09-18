@@ -48,6 +48,7 @@ namespace app3
                     //Add input of procedure
                     cmd.Parameters.Add(new SqlParameter("@username", username));
 
+
                     //Executing the SQLCommand
                     conn.Open();
                     SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -180,7 +181,7 @@ namespace app3
                 SqlCommand cmd = new SqlCommand("cancelOrder", conn);
 
                 //To read the input from the user
-                string username = (String)Session["username"];
+                string username = (String)Session["field1"];
                 Button b = (Button)sender;
                 int orderNo = Int32.Parse(b.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;

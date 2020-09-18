@@ -56,7 +56,7 @@ namespace Reachout1
                 //MyButton.CommandArgument = orderno.ToString();
                 //MyButton.Command += cancelOrder;
                 MyButton.UseSubmitBehavior = false;
-                MyButton.PostBackUrl = "Hosp_order_info.aspx?oid=" + orderno.ToString();
+                MyButton.PostBackUrl = "Hosp_order_details.aspx?oid=" + orderno.ToString();
                 MyButton.Text = "Order Details";
                 Panel card = new Panel();
                 card.CssClass = "icon-box";

@@ -203,7 +203,7 @@ namespace app3
                 SqlCommand cmd = new SqlCommand("update_status", conn);
 
                 //Preparing input for the procedure
-                string username = (String)Session["username"];
+                string username = (String)Session["field1"];
                 Button b = (Button)sender;
                 Control c = form1.FindControl("status");
                 DropDownList d = (DropDownList)c;

@@ -79,6 +79,7 @@
     <Content Include="ManfRegistration.aspx" />
     <Content Include="Manf_home.aspx" />
     <Content Include="Manf_order_details.aspx" />
+    <Content Include="Manf_product_details.aspx" />
     <Content Include="portfolio-details.html" />
     <Content Include="Start.aspx" />
     <Content Include="Web.config" />
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="Manf_order_details.aspx.designer.cs">
       <DependentUpon>Manf_order_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manf_product_details.aspx.cs">
+      <DependentUpon>Manf_product_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manf_product_details.aspx.designer.cs">
+      <DependentUpon>Manf_product_details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Start.aspx.cs">
