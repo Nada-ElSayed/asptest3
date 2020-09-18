@@ -53,8 +53,10 @@ namespace Reachout1
                 Button MyButton = new Button();
                 MyButton.CssClass = "btn-primary";
                 MyButton.CommandName = "Click";
-                MyButton.CommandArgument = orderno.ToString();
-                MyButton.Command += cancelOrder;
+                //MyButton.CommandArgument = orderno.ToString();
+                //MyButton.Command += cancelOrder;
+                MyButton.UseSubmitBehavior = false;
+                MyButton.PostBackUrl = "Hosp_order_info.aspx?oid=" + orderno.ToString();
                 MyButton.Text = "Order Details";
                 Panel card = new Panel();
                 card.CssClass = "icon-box";
@@ -306,32 +308,32 @@ namespace Reachout1
             Response.Redirect("Hosp_product_info.aspx?pid="+ Value1, true);
         }
 
-        protected void cancelOrder(object sender, CommandEventArgs e)
-        {
-
-            Button btn = (Button)sender;
-            string order_id = Convert.ToString( e.CommandArgument);
-
-            string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
-
-            SqlCommand cmd = new SqlCommand("cancelOrder", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@orderId", order_id));
-            cmd.Parameters.Add(new SqlParameter("@username",Session["field1"]));
-            conn.Open();
-            try
-            {
-                cmd.ExecuteNonQuery();
-                Response.Redirect(Request.RawUrl);
-            }
-            catch(Exception ex)
-            {
-                
-                txtWarning.Text = ex.Message;
-            }
-            
-        }
+      //  protected void cancelOrder(object sender, CommandEventArgs e)
+      //  {
+      //
+      //      Button btn = (Button)sender;
+      //      string order_id = Convert.ToString( e.CommandArgument);
+      //
+      //      string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
+      //      SqlConnection conn = new SqlConnection(connStr);
+      //
+      //      SqlCommand cmd = new SqlCommand("cancelOrder", conn);
+      //      cmd.CommandType = CommandType.StoredProcedure;
+      //      cmd.Parameters.Add(new SqlParameter("@orderId", order_id));
+      //      cmd.Parameters.Add(new SqlParameter("@username",Session["field1"]));
+      //      conn.Open();
+      //      try
+      //      {
+      //          cmd.ExecuteNonQuery();
+      //          Response.Redirect(Request.RawUrl);
+      //      }
+      //      catch(Exception ex)
+      //      {
+      //          
+      //          txtWarning.Text = ex.Message;
+      //      }
+      //      
+      //  }
 
 
 
