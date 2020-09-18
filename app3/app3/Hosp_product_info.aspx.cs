@@ -67,20 +67,18 @@ namespace app3
 
                 int ProdVendorID= rdr.GetInt32(rdr.GetOrdinal("manufacturer_id"));
 
-               
-
                 string category = rdr.GetString(rdr.GetOrdinal("category"));
 
-                 liTi.Text = "<h3> Gloves </h3>"; 
-                if (category == "GLOV") { liTi.Text = "<h3> Gloves </h3>"; }
-                if (category == "MASK") { liTi.Text = "<h3> Mask </h3>"; }
-                if (category == "VENT") { liTi.Text = "<h3> Ventilator </h3>"; }
+                 liTi.Text = ""; 
+                if (category == "GLOV") { liTi.Text = " "+"<h2> Glove </h2>"; }
+                if (category == "MASK") { liTi.Text = " " + "<h2> Mask </h2>"; }
+                if (category == "VENT") { liTi.Text = " " + "<h2> Ventilator </h2>"; }
 
                 conn.Close();
                 SqlCommand cmd2 = new SqlCommand("select * from Manufacturers where id=" + ProdVendorID, conn);
                 cmd2.CommandType = CommandType.Text;
                 conn.Open();
-                string vendorName = "name not available";
+                string vendorName = "Name not Available";
                 SqlDataReader rdr2 = cmd2.ExecuteReader(CommandBehavior.SingleRow);
                 if (rdr2.Read() != null)
                 {
@@ -96,7 +94,6 @@ namespace app3
                                 "<div class='icon-box' " +
                                             "style='" +
                                             "padding: 30px;" +
-                                            //"margin: 3px;"+
                                             "position: relative;" +
                                             "overflow: hidden;" +
                                             "background: #fff;" +
@@ -104,13 +101,12 @@ namespace app3
                                             "transition: all 0.3s ease-in-out;" +
                                             "height: 90%;' >" +
                                 "<h4 class='prodName' style='" +
-                                                    "margin-left: 40px;" +
+                  
                                                     "font-weight: 700;" +
-                                                    //"margin - bottom: 15px;"+
                                                     "font-size: 18px; '>" +
-                                "<a href='' style='color:#111'>" + ProdName + "</a></h4>" +
+                                "" + ProdName +"</h4>" +
                                 "<div class='prodDes' style='font-size: 14px;" +
-                                                              "margin-left: 40px;" +
+                                                             
                                                               "line-height: 24px;" +
                                                               "margin-bottom: 0;" +
                                                               "padding-bottom: 1px'> " +
@@ -118,16 +114,10 @@ namespace app3
                                 "<p> Manufacturer: " + vendorName + "</p>" +
                                 "<p> Unit Price: EGP" + Prodprice + "</p>" +
                                 "<p> Details: </br>"+ descrip + "</p>" +
-                                "<p> Available amount: " + amount + "</p>" +
+                                "<p> Available Amount in  Stock: " + amount + "</p>" +
                                 "Status: "+availability +
                                 "</div>" +
-                                "<div style='overflow: auto;" +
-                                "width:100%;" +
-                                "height:30%" +
-                                "margin:0px;" +
-                                "'>" +
-                                //"<input type='text' id='quantity'  placeholder='Count' style='width:70px;height:75%;marin-top:6px'>" +
-                                 "</div>" +
+                                
                                 "</div>" +
                                 "</div>";
 
@@ -173,6 +163,11 @@ namespace app3
             
 
 
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Hosp_home.aspx");
         }
 
 
