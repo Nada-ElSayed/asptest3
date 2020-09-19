@@ -71,7 +71,13 @@ namespace app3
                         string hospName = rdr.GetString(rdr.GetOrdinal("name"));
                         //Get the value of the attribute address from the output of the procedure
                         string hospAddress = rdr.GetString(rdr.GetOrdinal("address"));
-
+                            
+                        var dl = new DropDownList();
+                            dl.ID = "status";
+                            dl.Items.Add("Please select the status of the order");
+                            dl.Items.Add("Pending");
+                            dl.Items.Add("Out for Delivery");
+                            dl.Items.Add("Delivered");
                         //if this is the order we are looking for
                         if (orderno == Int32.Parse(orderId))
                         {
@@ -85,98 +91,139 @@ namespace app3
                             String productName = rdr.GetString(rdr.GetOrdinal("name"));
                             conn.Close();
 
+
+                            
+
+                            Literal listed = new Literal();
+
+
+                            listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                               "<div class='icon-box' " +
+                                           "style='" +
+                                           "padding: 30px;" +
+                                           "position: relative;" +
+                                           "overflow: hidden;" +
+                                           "background: #fff;" +
+                                           "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                           "transition: all 0.3s ease-in-out;" +
+                                           "height: 90%;' >" +
+                               "<h4 class='prodName' style='" +
+
+                                                   "font-weight: 700;" +
+                                                   "font-size: 18px; '>" +
+                               "Order ID: #" + orderno + "</h4>" +
+                               "<div class='prodDes' style='font-size: 14px;" +
+
+                                                             "line-height: 24px;" +
+                                                             "margin-bottom: 0;" +
+                                                             "padding-bottom: 1px'> " +
+                               "<p> Product Number: " + prodno + "</p>" +
+                               "<p> Ordered On: " + date + "</p>" +
+                               "<p> Customer Name: " + hospName + " </p>" +
+                               "<p> Shipping Address: " + hospAddress + " </p>" +
+                               "<p> Quantity:" + quantity + "</p>" +
+                               "<p> Total Price: EGP" + totalPrice + "</p>" +
+                               "<p> Current Status: " + status + "</p>" +
+                                "<p> Please enter new status: " + dl + "</p>" +
+                               "</div>" +
+
+                               "</div>" +
+                               "</div>";
+
+                            orderCard.Controls.Add(listed);
+
                             //Create lables for order detail and add them to the form
-                            Label pageTitle = new Label();
-                            pageTitle.Text = "Order Details";
-                            form1.Controls.Add(pageTitle);
-                            Label newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label pageTitle = new Label();
+                            //pageTitle.Text = "Order Details";
+                            //form1.Controls.Add(pageTitle);
+                            //Label newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label orderID = new Label();
-                            orderID.Text = "Order ID: #" + orderno;
-                            form1.Controls.Add(orderID);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label orderID = new Label();
+                            //orderID.Text = "Order ID: #" + orderno;
+                            //form1.Controls.Add(orderID);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label prodName = new Label();
-                            prodName.Text = "Product name: " + productName;
-                            form1.Controls.Add(prodName);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label prodName = new Label();
+                            //prodName.Text = "Product name: " + productName;
+                            //form1.Controls.Add(prodName);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label orderDate = new Label();
-                            orderDate.Text = "Ordered on: " + date;
-                            form1.Controls.Add(orderDate);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label orderDate = new Label();
+                            //orderDate.Text = "Ordered on: " + date;
+                            //form1.Controls.Add(orderDate);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label hospname = new Label();
-                            hospname.Text = "Customer name: " + hospName;
-                            form1.Controls.Add(hospname);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label hospname = new Label();
+                            //hospname.Text = "Customer name: " + hospName;
+                            //form1.Controls.Add(hospname);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label hospaddress = new Label();
-                            hospaddress.Text = "shipping address: " + hospAddress;
-                            form1.Controls.Add(hospaddress);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label hospaddress = new Label();
+                            //hospaddress.Text = "shipping address: " + hospAddress;
+                            //form1.Controls.Add(hospaddress);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label quant = new Label();
-                            quant.Text = "Quantity ordered: " + quantity;
-                            form1.Controls.Add(quant);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label quant = new Label();
+                            //quant.Text = "Quantity ordered: " + quantity;
+                            //form1.Controls.Add(quant);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label totPrice = new Label();
-                            totPrice.Text = "Total price: EGP" + totalPrice;
-                            form1.Controls.Add(totPrice);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label totPrice = new Label();
+                            //totPrice.Text = "Total price: EGP" + totalPrice;
+                            //form1.Controls.Add(totPrice);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
-                            Label stat = new Label();
-                            stat.Text = "Current status of order: " + status;
-                            form1.Controls.Add(stat);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            //Label stat = new Label();
+                            //stat.Text = "Current status of order: " + status;
+                            //form1.Controls.Add(stat);
+                            //newLine = new Label();
+                            //newLine.Text = ("</br> </br>");
+                            //form1.Controls.Add(newLine);
 
                             //add label
-                            Label l = new Label();
-                            l.Text = "Please enter new status of order";
-                            form1.Controls.Add(l);
+                            //Label l = new Label();
+                            //l.Text = "Please enter new status of order";
+                            //form1.Controls.Add(l);
 
-                            // Creating and setting the properties of dropdown box 
-                            var dl = new DropDownList();
-                            dl.ID = "status";
-                            dl.Items.Add("Please select the status of the order");
-                            dl.Items.Add("Pending");
-                            dl.Items.Add("Out for Delivery");
-                            dl.Items.Add("Delivered");
-                            // Adding this dropdown box  to the form 
-                            form1.Controls.Add(dl);
+                            //// Creating and setting the properties of dropdown box 
+                            //var dl = new DropDownList();
+                            //dl.ID = "status";
+                            //dl.Items.Add("Please select the status of the order");
+                            //dl.Items.Add("Pending");
+                            //dl.Items.Add("Out for Delivery");
+                            //dl.Items.Add("Delivered");
+                            //// Adding this dropdown box  to the form 
+                            //form1.Controls.Add(dl);
 
                             //add  Update status of order button
-                            Button myButton = new Button();
-                            //add text to button
-                            myButton.Text = "Update status of order";
+                            //Button myButton = new Button();
+                            ////add text to button
+                            //myButton.Text = "Update status of order";
                             // Add a Button Click Event handler  
                             myButton.Click += new EventHandler(updateStatus);
                             //add order id to the  button so the update status procedure can know which order will be updated when we click on button
                             myButton.CommandArgument = orderno.ToString();
-                            //add button to form
-                            form1.Controls.Add(myButton);
+                            ////add button to form
+                            //form1.Controls.Add(myButton);
 
                             //we found the order so we can stop looping on the rows
                             found = true; break;
