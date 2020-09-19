@@ -201,27 +201,30 @@ namespace app3
                             //l.Text = "Please enter new status of order";
                             //form1.Controls.Add(l);
 
-                            // Creating and setting the properties of dropdown box 
-                            //var dl = new DropDownList();
-                            //dl.ID = "status";
-                            //dl.Items.Add("Please select the status of the order");
-                            //dl.Items.Add("Pending");
-                            //dl.Items.Add("Out for Delivery");
-                            //dl.Items.Add("Delivered");
+                            //Creating and setting the properties of dropdown box
+                            var dl = new DropDownList();
+                            dl.ID = "status";
+                            dl.Items.Add("Please select the status of the order");
+                            dl.Items.Add("Pending");
+                            dl.Items.Add("Out for Delivery");
+                            dl.Items.Add("Delivered");
 
-                            //// Adding this dropdown box  to the form 
-                            //form1.Controls.Add(dl);
+                            // Adding this dropdown box  to the form 
+                            hiddenDropList.Controls.Add(dl);
+
+                           
 
                             //add  Update status of order button
-                            //Button myButton = new Button();
-                            ////add text to button
-                            //myButton.Text = "Update status of order";
-                            // Add a Button Click Event handler  
+                            Button myButton = new Button();
+                            //add text to button
+                            myButton.Text = "Update status of order";
+                            myButton.CssClass = "btn-primary";
+                            //Add a Button Click Event handler
                             myButton.Click += new EventHandler(updateStatus);
                             //add order id to the  button so the update status procedure can know which order will be updated when we click on button
                             myButton.CommandArgument = orderno.ToString();
                             ////add button to form
-                            //form1.Controls.Add(myButton);
+                            hiddenButton.Controls.Add(myButton);
 
                             //we found the order so we can stop looping on the rows
                             found = true; break;
