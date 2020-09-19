@@ -17,14 +17,15 @@ namespace app3
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
+            if(true)
+            //if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
             {
                 //If order id can be obtained from the request
 
                 //take order id from the request and store it
                 string v = Request.QueryString["oid"];
                 orderId = v;
-
+                orderId = "2";
                 //obtain connection info and create sql connection to database
                 string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
                 conn = new SqlConnection(connStr);
@@ -33,7 +34,8 @@ namespace app3
                 SqlCommand cmd = new SqlCommand("viewManufacturerOrders", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if (Session["field1"] == null)
+                if(false)
+                //if (Session["field1"] == null)
                 {
                     //if user is not logged in, then he cannot access a user's order detail page
                     //redirect him to the login page
@@ -43,7 +45,7 @@ namespace app3
                 {
                     //if username exists in the session, then store it
                     String username = (String)Session["field1"];
-
+                    username = "soad_M19";
                     //Add input of procedure
                     cmd.Parameters.Add(new SqlParameter("@username", username));
 
@@ -251,6 +253,7 @@ namespace app3
 
                 //Preparing input for the procedure
                 string username = (String)Session["field1"];
+                username = "soad_M19";
                 Button b = (Button)sender;
                 Control c = form1.FindControl("status");
                 DropDownList d = (DropDownList)c;
