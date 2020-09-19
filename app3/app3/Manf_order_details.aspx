@@ -66,9 +66,7 @@
 
                 </div>
                 <br />
-    <div id="hiddenDropList" runat="server"> 
-           
- </div> 
+    <div id="hidden" runat="server">    </div> 
           <div id="hiddenButton" runat="server"></div>
                 
                 <asp:Label ID="Label2" runat="server" ></asp:Label>

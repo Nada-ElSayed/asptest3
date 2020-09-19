@@ -210,10 +210,8 @@ namespace app3
                             dl.Items.Add("Delivered");
 
                             // Adding this dropdown box  to the form 
-                            hiddenDropList.Controls.Add(dl);
-
+                            hidden.Controls.Add(dl);
                            
-
                             //add  Update status of order button
                             Button myButton = new Button();
                             //add text to button
