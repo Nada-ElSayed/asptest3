@@ -137,6 +137,7 @@ namespace app3
                             //add button to form
                             con.Controls.Add(myButton);
 
+
                             //we found the order so we can stop looping on the rows
                             found = true; break;
                         }
