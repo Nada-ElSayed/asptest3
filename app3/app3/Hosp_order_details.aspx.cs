@@ -31,10 +31,10 @@ namespace app3
                 conn = new SqlConnection(connStr);
 
                 //create a new SQL command which takes as parameters the name of the stored procedure and the SQLconnection name
-                SqlCommand cmd = new SqlCommand("viewHospitalOrders", conn);
+                SqlCommand cmd = new SqlCommand("viewSpecificHospitalOrders", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if (Session["field1"] == null)
+               if (Session["field1"] == null)
                 {
                     //if user is not logged in, then he cannot access a user's order detail page
                     //redirect him to the login page
@@ -46,15 +46,15 @@ namespace app3
                     String username = (String)Session["field1"];
                     //Add input of procedure
                     cmd.Parameters.Add(new SqlParameter("@username", username));
+                    cmd.Parameters.Add(new SqlParameter("@orderId", orderId));
 
 
                     //Executing the SQLCommand
                     conn.Open();
-                    SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
 
-                    //loop over the rows returned by reader to find the row that matches the desired order
-                    bool found = false;
-                    while (rdr.Read())
+                    //if order exists
+                    if (rdr.Read())
                     {
                         //Get the value of the attribute order_id from the output of the procedure
                         int orderno = rdr.GetInt32(rdr.GetOrdinal("order_id"));
@@ -71,74 +71,67 @@ namespace app3
                         //Get the value of the attribute name from the output of the procedure
                         string manfName = rdr.GetString(rdr.GetOrdinal("name"));
 
-                        //if this is the order we are looking for
-                        if (orderno == Int32.Parse(orderId))
-                        {
-                            //before we output the order details to the form, we need the product name by using a SQL query
-                            cmd = new SqlCommand("select * from Products where id=" + prodno, conn);
-                            cmd.CommandType = CommandType.Text;
-                            conn.Close();
-                            conn.Open();
-                            rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
-                            rdr.Read();
-                            String productName = rdr.GetString(rdr.GetOrdinal("name"));
-                            conn.Close();
+                        //before we output the order details to the form, we need the product name by using a SQL query
+                        cmd = new SqlCommand("select * from Products where id=" + prodno, conn);
+                        cmd.CommandType = CommandType.Text;
+                        conn.Close();
+                        conn.Open();
+                        rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                        rdr.Read();
+                        String productName = rdr.GetString(rdr.GetOrdinal("name"));
+                        conn.Close();
 
 
-                            Literal listed = new Literal();
+                        Literal listed = new Literal();
 
 
-                            listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
-                               "<div class='icon-box' " +
-                                           "style='" +
-                                           "padding: 30px;" +
-                                           "position: relative;" +
-                                           "overflow: hidden;" +
-                                           "background: #fff;" +
-                                           "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
-                                           "transition: all 0.3s ease-in-out;" +
-                                           "height: 90%;' >" +
-                               "<h4 class='prodName' style='" +
+                        listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                           "<div class='icon-box' " +
+                                       "style='" +
+                                       "padding: 30px;" +
+                                       "position: relative;" +
+                                       "overflow: hidden;" +
+                                       "background: #fff;" +
+                                       "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                       "transition: all 0.3s ease-in-out;" +
+                                       "height: 90%;' >" +
+                           "<h4 class='prodName' style='" +
 
-                                                   "font-weight: 700;" +
-                                                   "font-size: 18px; '>" +
-                               "Order ID: #" + orderno + "</h4>" +
-                               "<div class='prodDes' style='font-size: 14px;" +
+                                               "font-weight: 700;" +
+                                               "font-size: 18px; '>" +
+                           "Order ID: #" + orderno + "</h4>" +
+                           "<div class='prodDes' style='font-size: 14px;" +
 
-                                                             "line-height: 24px;" +
-                                                             "margin-bottom: 0;" +
-                                                             "padding-bottom: 1px'> " +
-                               "<p> Product Number: " + prodno + "</p>" +
-                               "<p> Ordered On: " + date + "</p>" +
-                               "<p> To be provided by: " + manfName + " </p>" +
-                               "<p> Quantity:" + quantity  + "</p>" +
-                               "<p> Total Price: EGP" + totalPrice + "</p>" +
-                               "<p> Current Status: " + status + "</p>"+
-                               "</div>" +
+                                                         "line-height: 24px;" +
+                                                         "margin-bottom: 0;" +
+                                                         "padding-bottom: 1px'> " +
+                           "<p> Product Number: " + prodno + "</p>" +
+                           "<p> Ordered On: " + date + "</p>" +
+                           "<p> To be provided by: " + manfName + " </p>" +
+                           "<p> Quantity:" + quantity + "</p>" +
+                           "<p> Total Price: EGP" + totalPrice + "</p>" +
+                           "<p> Current Status: " + status + "</p>" +
+                           "</div>" +
 
-                               "</div>" +
-                               "</div>";
+                           "</div>" +
+                           "</div>";
 
-                            orderCard.Controls.Add(listed);
-
-
-                            //add cancel order button
-                            Button myButton = new Button();
-                            //add text to button
-                            myButton.Text = "Cancel Order";
-                            //Add a Button Click Event handler  
-                            myButton.Click += new EventHandler(cancelOrder); //ONclick
-                            //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
-                            myButton.CommandArgument = orderno.ToString();
-                            //add button to form
-                            con.Controls.Add(myButton);
+                        orderCard.Controls.Add(listed);
 
 
-                            //we found the order so we can stop looping on the rows
-                            found = true; break;
-                        }
+                        //add cancel order button
+                        Button myButton = new Button();
+                        //add text to button
+                        myButton.Text = "Cancel Order";
+                        //Add a Button Click Event handler  
+                        myButton.Click += new EventHandler(cancelOrder); //ONclick
+                                                                         //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
+                        myButton.CommandArgument = orderno.ToString();
+                        //add button to form
+                        con.Controls.Add(myButton);
+
                     }
-                    if (!found)
+                    else
                     {
                         //if the row has not been found then no order details can be found matching this order id and this user name
                         Response.Write("Page not found.");
@@ -160,6 +153,7 @@ namespace app3
 
                 //To read the input from the user
                 string username = (String)Session["field1"];
+
                 Button b = (Button)sender;
                 int orderNo = Int32.Parse(b.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
