@@ -51,7 +51,7 @@ namespace Reachout1
 
                 liTi.Text = "Placed Orders";
                 Button MyButton = new Button();
-                MyButton.CssClass = "btn-primary";
+                MyButton.CssClass = "btn-primary btn-info";
                 MyButton.CommandName = "Click";
                 //MyButton.CommandArgument = orderno.ToString();
                 //MyButton.Command += cancelOrder;
