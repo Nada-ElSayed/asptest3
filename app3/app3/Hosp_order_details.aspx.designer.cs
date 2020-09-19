@@ -33,13 +33,13 @@ namespace app3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl orderCard;
 
         /// <summary>
-        /// myButton control.
+        /// con control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button myButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl con;
 
         /// <summary>
         /// Label2 control.

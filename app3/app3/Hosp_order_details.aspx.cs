@@ -18,15 +18,13 @@ namespace app3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(true)
-            //if(!string.IsNullOrEmpty(Request.QueryString["oid"]))
+            if(!string.IsNullOrEmpty(Request.QueryString["oid"]))
             {
                 //If order id can be obtained from the request
 
                 //take order id from the request and store it
                 string v = Request.QueryString["oid"];
                 orderId = v;
-                orderId = "1";
 
                 //obtain connection info and create sql connection to database
                 string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
@@ -36,8 +34,7 @@ namespace app3
                 SqlCommand cmd = new SqlCommand("viewHospitalOrders", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if(false)
-                //if (Session["field1"] == null)
+                if (Session["field1"] == null)
                 {
                     //if user is not logged in, then he cannot access a user's order detail page
                     //redirect him to the login page
@@ -47,7 +44,6 @@ namespace app3
                 {
                     //if username exists in the session, then store it
                     String username = (String)Session["field1"];
-                    username = "ahmed_H1";
                     //Add input of procedure
                     cmd.Parameters.Add(new SqlParameter("@username", username));
 
@@ -127,15 +123,16 @@ namespace app3
 
 
                             //add cancel order button
-                            //Button myButton = new Button();
+                            Button myButton = new Button();
                             //add text to button
-                            //myButton.Text = "Cancel order";
+                            myButton.Text = "Cancel Order";
                             //Add a Button Click Event handler  
-                             myButton.Click += new EventHandler(cancelOrder); //ONclick
+                            myButton.Click += new EventHandler(cancelOrder); //ONclick
                             //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
                             myButton.CommandArgument = orderno.ToString();
                             //add button to form
-                            //form1.Controls.Add(myButton);
+                            con.Controls.Add(myButton);
+
 
                             //we found the order so we can stop looping on the rows
                             found = true; break;
@@ -163,7 +160,6 @@ namespace app3
 
                 //To read the input from the user
                 string username = (String)Session["field1"];
-                username = "ahmed_H1";
                 Button b = (Button)sender;
                 int orderNo = Int32.Parse(b.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -66,7 +66,7 @@
                 </div>
                 <br />
 
-                  <asp:Button class="btn-primary" ID="myButton" runat="server" Text="Cancel Order" />
+                  <div runat="server" id="con"> </div>
 
 
                 
@@ -74,6 +74,8 @@
             </div>    
           </div> 
 
+
+             
         
         </main>
 
