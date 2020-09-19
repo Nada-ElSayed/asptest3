@@ -62,9 +62,22 @@
           <div class="container" style="position: absolute;  bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
               <div>
                 <div id ="orderCard" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
+
                 </div>
                 <br />
+               <%--   <asp:dropdownlist runat="server" autopostback="true" onselectedindexchanged="ddlTest_SelectedIndexChanged" id="ddlTest"> 
+                     <asp:ListItem Value="1" Text="Helo"></asp:ListItem>
+                       <asp:ListItem Value="1" Text="Heii"></asp:ListItem>
+                  </asp:dropdownlist>--%>
 
+                  <div>
+                  <asp:DropDownList ID="status" runat="server">
+                      <asp:ListItem Value="1" Text="Please select the status of the order"></asp:ListItem>
+                      <asp:ListItem Value="2" Text="Pending"></asp:ListItem>
+                       <asp:ListItem Value="3" Text="Out for Delivery"></asp:ListItem>
+                      <asp:ListItem Value="4" Text="Delivered"></asp:ListItem>
+               
+                  </asp:DropDownList></div>
                   <asp:Button class="btn-primary" ID="myButton" runat="server" Text="Update Status" />
 
 

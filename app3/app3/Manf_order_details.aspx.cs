@@ -25,7 +25,7 @@ namespace app3
                 //take order id from the request and store it
                 string v = Request.QueryString["oid"];
                 orderId = v;
-                orderId = "2";
+                orderId = "3";
                 //obtain connection info and create sql connection to database
                 string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
                 conn = new SqlConnection(connStr);
@@ -45,7 +45,7 @@ namespace app3
                 {
                     //if username exists in the session, then store it
                     String username = (String)Session["field1"];
-                    username = "soad_M19";
+                    username = "soad_M1";
                     //Add input of procedure
                     cmd.Parameters.Add(new SqlParameter("@username", username));
 
@@ -74,12 +74,7 @@ namespace app3
                         //Get the value of the attribute address from the output of the procedure
                         string hospAddress = rdr.GetString(rdr.GetOrdinal("address"));
                             
-                        var dl = new DropDownList();
-                            dl.ID = "status";
-                            dl.Items.Add("Please select the status of the order");
-                            dl.Items.Add("Pending");
-                            dl.Items.Add("Out for Delivery");
-                            dl.Items.Add("Delivered");
+                      
                         //if this is the order we are looking for
                         if (orderno == Int32.Parse(orderId))
                         {
@@ -126,7 +121,7 @@ namespace app3
                                "<p> Quantity:" + quantity + "</p>" +
                                "<p> Total Price: EGP" + totalPrice + "</p>" +
                                "<p> Current Status: " + status + "</p>" +
-                                "<p> Please enter new status: " + dl + "</p>" +
+                                //"<p> Please enter new status: " + dl + "</p>" +
                                "</div>" +
 
                                "</div>" +
@@ -206,13 +201,14 @@ namespace app3
                             //l.Text = "Please enter new status of order";
                             //form1.Controls.Add(l);
 
-                            //// Creating and setting the properties of dropdown box 
+                            // Creating and setting the properties of dropdown box 
                             //var dl = new DropDownList();
                             //dl.ID = "status";
                             //dl.Items.Add("Please select the status of the order");
                             //dl.Items.Add("Pending");
                             //dl.Items.Add("Out for Delivery");
                             //dl.Items.Add("Delivered");
+
                             //// Adding this dropdown box  to the form 
                             //form1.Controls.Add(dl);
 
@@ -244,6 +240,7 @@ namespace app3
                 Response.Write("NO DATA PROVIDED OR COULD NOT BE READ");
             }
         }
+     
         private void updateStatus(object sender, EventArgs e)
         {
             try
@@ -253,7 +250,7 @@ namespace app3
 
                 //Preparing input for the procedure
                 string username = (String)Session["field1"];
-                username = "soad_M19";
+                username = "soad_M1";
                 Button b = (Button)sender;
                 Control c = form1.FindControl("status");
                 DropDownList d = (DropDownList)c;
