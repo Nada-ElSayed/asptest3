@@ -127,15 +127,15 @@ namespace app3
 
 
                             //add cancel order button
-                            //Button myButton = new Button();
+                            Button myButton = new Button();
                             //add text to button
-                            //myButton.Text = "Cancel order";
+                            myButton.Text = "Cancel Order";
                             //Add a Button Click Event handler  
-                             myButton.Click += new EventHandler(cancelOrder); //ONclick
+                            myButton.Click += new EventHandler(cancelOrder); //ONclick
                             //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
                             myButton.CommandArgument = orderno.ToString();
                             //add button to form
-                            //form1.Controls.Add(myButton);
+                            con.Controls.Add(myButton);
 
                             //we found the order so we can stop looping on the rows
                             found = true; break;
