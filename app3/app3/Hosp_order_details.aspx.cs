@@ -85,76 +85,54 @@ namespace app3
                             String productName = rdr.GetString(rdr.GetOrdinal("name"));
                             conn.Close();
 
-                            //Create lables for order detail and add them to the form
-                            Label pageTitle = new Label();
-                            pageTitle.Text = "Order Details";
-                            form1.Controls.Add(pageTitle);
-                            Label newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
 
-                            Label orderID = new Label();
-                            orderID.Text = "Order ID: #" + orderno;
-                            form1.Controls.Add(orderID);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            Literal listed = new Literal();
 
-                            Label prodName = new Label();
-                            prodName.Text = "Product name: " + productName;
-                            form1.Controls.Add(prodName);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
 
-                            Label orderDate = new Label();
-                            orderDate.Text = "Ordered on: " + date;
-                            form1.Controls.Add(orderDate);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                               "<div class='icon-box' " +
+                                           "style='" +
+                                           "padding: 30px;" +
+                                           "position: relative;" +
+                                           "overflow: hidden;" +
+                                           "background: #fff;" +
+                                           "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
+                                           "transition: all 0.3s ease-in-out;" +
+                                           "height: 90%;' >" +
+                               "<h4 class='prodName' style='" +
 
-                            Label manfname = new Label();
-                            manfname.Text = "To be provided by: " + manfName;
-                            form1.Controls.Add(manfname);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                                                   "font-weight: 700;" +
+                                                   "font-size: 18px; '>" +
+                               "Order ID: #" + orderno + "</h4>" +
+                               "<div class='prodDes' style='font-size: 14px;" +
 
-                            Label quant = new Label();
-                            quant.Text = "Quantity ordered: " + quantity;
-                            form1.Controls.Add(quant);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                                                             "line-height: 24px;" +
+                                                             "margin-bottom: 0;" +
+                                                             "padding-bottom: 1px'> " +
+                               "<p> Product Number: " + prodno + "</p>" +
+                               "<p> Ordered On: " + date + "</p>" +
+                               "<p> To be provided by: " + manfName + " </p>" +
+                               "<p> Quantity:" + quantity  + "</p>" +
+                               "<p> Total Price: EGP" + totalPrice + "</p>" +
+                               "<p> Current Status: " + status + "</p>"+
+                               "</div>" +
 
-                            Label totPrice = new Label();
-                            totPrice.Text = "Total price: EGP" + totalPrice;
-                            form1.Controls.Add(totPrice);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                               "</div>" +
+                               "</div>";
 
-                            Label stat = new Label();
-                            stat.Text = "Current status of order: " + status;
-                            form1.Controls.Add(stat);
-                            newLine = new Label();
-                            newLine.Text = ("</br> </br>");
-                            form1.Controls.Add(newLine);
+                            orderCard.Controls.Add(listed);
+
 
                             //add cancel order button
-                            Button myButton = new Button();
+                            //Button myButton = new Button();
                             //add text to button
-                            myButton.Text = "Cancel order";
-                            // Add a Button Click Event handler  
-                            myButton.Click += new EventHandler(cancelOrder);
-                            //add order id to the  button so the cancel order procedure can know which order will be canceled when we click on button
+                            //myButton.Text = "Cancel order";
+                            //Add a Button Click Event handler  
+                             myButton.Click += new EventHandler(cancelOrder); //ONclick
+                            //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
                             myButton.CommandArgument = orderno.ToString();
                             //add button to form
-                            form1.Controls.Add(myButton);
+                            //form1.Controls.Add(myButton);
 
                             //we found the order so we can stop looping on the rows
                             found = true; break;
@@ -203,5 +181,6 @@ namespace app3
                 Response.Write(e1.Message);
             }
         }
+
     }
 }
