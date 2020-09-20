@@ -78,6 +78,15 @@ namespace Reachout1
         protected global::System.Web.UI.WebControls.TextBox txt_price;
 
         /// <summary>
+        /// error_price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_price;
+
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,13 @@ namespace Reachout1
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// radiolist_category control.
+        /// DropDown_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radiolist_category;
+        protected global::System.Web.UI.WebControls.DropDownList DropDown_category;
 
         /// <summary>
         /// Label5 control.
@@ -114,6 +123,15 @@ namespace Reachout1
         protected global::System.Web.UI.WebControls.TextBox txt_amount;
 
         /// <summary>
+        /// error_amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_amount;
+
+        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,15 @@ namespace Reachout1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_GTIN;
+
+        /// <summary>
+        /// error_GTIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_GTIN;
 
         /// <summary>
         /// Button3 control.

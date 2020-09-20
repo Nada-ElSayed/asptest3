@@ -15,7 +15,17 @@ namespace app3
     {
         string Prodserialno;
 
-        int amount = 1;
+        int amount = 0;
+
+
+
+        string ProdName;
+        string Prodprice;
+        string GTIN;
+        string availability;
+        string descrip;
+        string category;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,13 +56,12 @@ namespace app3
             if (rdr.Read() != null)
             {
                 //Get the value of the attribute name in the Company table
-                string ProdName = rdr.GetString(rdr.GetOrdinal("name"));
+                ProdName = rdr.GetString(rdr.GetOrdinal("name"));
                 //Get the value of the attribute field in the Company table
-                string Prodprice = (rdr.GetSqlDecimal(rdr.GetOrdinal("unit_price"))).ToString();
+                Prodprice = (rdr.GetSqlDecimal(rdr.GetOrdinal("unit_price"))).ToString();
                 amount = rdr.GetInt32(rdr.GetOrdinal("amount"));
-                string GTIN = rdr.GetString(rdr.GetOrdinal("GTIN"));
+                GTIN = rdr.GetString(rdr.GetOrdinal("GTIN"));
 
-                string availability = (rdr.GetSqlBoolean(rdr.GetOrdinal("available"))).ToString();
                 if (rdr.GetSqlBoolean(rdr.GetOrdinal("available")))
                 {
                     availability = "available";
@@ -60,17 +69,17 @@ namespace app3
                 else availability = "not available";
 
 
-                string descrip;
+                
                 if (!rdr.IsDBNull(rdr.GetOrdinal("description")))
                 {
                     descrip = (rdr.GetString(rdr.GetOrdinal("description")));
                 }
-                else descrip = "__";
+                else descrip = "";
 
 
                 int ProdVendorID = rdr.GetInt32(rdr.GetOrdinal("manufacturer_id"));
 
-                string category = rdr.GetString(rdr.GetOrdinal("category"));
+                category = rdr.GetString(rdr.GetOrdinal("category"));
 
                 liTi.Text = "";
                 if (category == "GLOV") { liTi.Text = " " + "<h2> Glove </h2>"; }
@@ -130,7 +139,7 @@ namespace app3
             }
             else
             {
-                Response.Write("Product does not exist.");
+                Response.Write("<script>alert('Product does exist.');</script>");
             }
 
         }
@@ -146,12 +155,47 @@ namespace app3
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@username", Session["field1"]));
             cmd.Parameters.Add(new SqlParameter("@pid", Prodserialno));
-            cmd.Parameters.Add(new SqlParameter("@pname", Textpname.Text));
-            cmd.Parameters.Add(new SqlParameter("@info", Textinfo.Text));
-            cmd.Parameters.Add(new SqlParameter("@unit_price", Textunit_price.Text));
-            cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
-            cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+            if (Textpname.Text.Length > 0)
+            {
+                cmd.Parameters.Add(new SqlParameter("@pname", Textpname.Text));
+            }
+            else
+            {
+                cmd.Parameters.Add(new SqlParameter("@pname", ProdName));
 
+            }
+            cmd.Parameters.Add(new SqlParameter("@info", Textinfo.Text));
+
+            if (Textunit_price.Text.Length > 0)
+            {
+                cmd.Parameters.Add(new SqlParameter("@unit_price", Textunit_price.Text));
+
+            }
+            else
+            {
+                cmd.Parameters.Add(new SqlParameter("@unit_price", Prodprice));
+
+            }
+            if (Textamount.Text.Length>0)
+            {
+                cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
+
+            }
+            else
+            {
+                cmd.Parameters.Add(new SqlParameter("@amount", amount));
+
+            }
+            if (Textgtin.Text.Length > 0)
+            {
+                cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+
+            }
+            else
+            {
+                cmd.Parameters.Add(new SqlParameter("@gtin", GTIN));
+
+            }
             if (Dropcateg.SelectedValue == "Gloves")
             {
                 cmd.Parameters.Add(new SqlParameter("@categ", "GLOV"));
@@ -167,6 +211,7 @@ namespace app3
                 cmd.Parameters.Add(new SqlParameter("@categ", "VENT"));
 
             }
+            bool edit_success = true;
 
             conn.Open();
             Label1.Text = "Product Updated Successfully!";
@@ -177,16 +222,26 @@ namespace app3
             }
             catch (Exception ex)
             {
-                Label1.Text = ex.Message;
+                Response.Write("<script>alert('"+ex.Message+"');</script>");
+
             }
 
+            if (edit_success)
+            {
+                Response.Write("<script>alert('Product edited successfully.');</script>");
 
+            }
+           
 
         }
 
         protected void revertChanges(object sender, EventArgs e)
         {
-
+            Textpname.Text = "";
+            Textinfo.Text = "";
+            Textunit_price.Text = "";
+            Textamount.Text = "";
+            Textgtin.Text = "";
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

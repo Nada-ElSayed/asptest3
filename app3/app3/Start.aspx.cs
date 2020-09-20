@@ -45,40 +45,46 @@ namespace Reachout1
 
             SqlParameter success = cmd.Parameters.Add("@success", SqlDbType.Int);
             success.Direction = ParameterDirection.Output;
-            
-            //Executing the SQLCommand
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-
-            if (success.Value.ToString().Equals("1"))
+            try
             {
-                //To send response data to the client side (HTML)
-                Response.Write("Passed");
+                //Executing the SQLCommand
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
 
-                /*ASP.NET session state enables you to store and retrieve values for a user
-                as the user navigates ASP.NET pages in a Web application.
-                This is how we store a value in the session*/
-                Session["field1"] = username;
 
-                //To navigate to another webpage
-               //____________________dont forget______________-_-___---___-
-                  if (type.Value.ToString().Equals("0"))
+
+                if (success.Value.ToString().Equals("1"))
                 {
-                    Response.Redirect("Hosp_home.aspx", true);
+                    //To send response data to the client side (HTML)
+                    Response.Write("Passed");
+
+                    /*ASP.NET session state enables you to store and retrieve values for a user
+                    as the user navigates ASP.NET pages in a Web application.
+                    This is how we store a value in the session*/
+                    Session["field1"] = username;
+
+                    //To navigate to another webpage
+                    //____________________dont forget______________-_-___---___-
+                    if (type.Value.ToString().Equals("0"))
+                    {
+                        Response.Redirect("Hosp_home.aspx", true);
+                    }
+                    else if (type.Value.ToString().Equals("1"))
+                    {
+                        Response.Redirect("Manf_home.aspx", true);
+                    }
                 }
-                else if (type.Value.ToString().Equals("1"))
+                else
                 {
-                    Response.Redirect("Manf_home.aspx", true);
+                    Console.WriteLine("Failed");
+
+                    Fail1.Text = "Login failed. Please check username and password.";
+
                 }
-            }
-            else
+            }catch(Exception ex)
             {
-                Console.WriteLine("Failed");
-
-                 Fail1.Text= "Login failed. Please check username and password.";
-
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
 

@@ -12,9 +12,14 @@ namespace Reachout1
 {
     public partial class Manf_home : System.Web.UI.Page
     {
+        bool add_success = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-    
+
+
+            string[] categories = { "Ventilator", "Mask", "Gloves" };
+            DropDown_category.DataSource = categories;
+            DropDown_category.DataBind();
         }
 
         protected void viewMyProducts(object sender, EventArgs e)
@@ -151,32 +156,91 @@ namespace Reachout1
 
         }
 
+
+        protected void gtin_Validate(object sender, ServerValidateEventArgs e)
+        {
+            if (e.Value.Length == 8 || e.Value.Length == 12 || e.Value.Length == 13 || e.Value.Length == 14)
+            {
+                e.IsValid = true;
+            }
+            else
+            {
+                e.IsValid = false;
+                add_success = false;
+            }
+        }
         protected void addProduct(object sender, EventArgs e)
         {
-            Response.Redirect("Manf_post_product.aspx");
-            //string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
-            //SqlConnection conn = new SqlConnection(connStr);
-            //
-            //SqlCommand cmd = new SqlCommand("INSERT INTO Products ", conn);
-            //cmd.CommandType = CommandType.Text;
-            //String prod_name=txt_prod_name.Text;
-            //String description = txt_desc.Text;
-            //String price = txt_price.Text;
-            //string category = radiolist_category.SelectedValue;
-            //String amount = txt_amount.Text;
-            //String gtin = txt_GTIN.Text;
-            //
-            //
-            //cmd.Parameters.Add(new SqlParameter("@name", prod_name));
-            //cmd.Parameters.Add(new SqlParameter("@description", description));
-            //cmd.Parameters.Add(new SqlParameter("@unit_price", price));
-            //cmd.Parameters.Add(new SqlParameter("@available", 1));
-            //cmd.Parameters.Add(new SqlParameter("@category", category));
-            //cmd.Parameters.Add(new SqlParameter("@amount", amount));
-            //cmd.Parameters.Add(new SqlParameter("@manufacturer_id", 1));
-            //cmd.Parameters.Add(new SqlParameter("@GTIN", gtin));
-            //
-            //conn.Open();
+            string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+
+            SqlCommand cmd = new SqlCommand("PostProduct", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@username", Session["field1"]));
+            cmd.Parameters.Add(new SqlParameter("@pname", txt_prod_name.Text));
+            cmd.Parameters.Add(new SqlParameter("@info", txt_desc.Text));
+            cmd.Parameters.Add(new SqlParameter("@unit_price", txt_price.Text));
+            cmd.Parameters.Add(new SqlParameter("@amount", txt_amount.Text));
+            cmd.Parameters.Add(new SqlParameter("@gtin", txt_GTIN.Text));
+
+            if (DropDown_category.SelectedValue == "Gloves")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "GLOV"));
+
+            }
+            if (DropDown_category.SelectedValue == "Mask")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "MASK"));
+
+            }
+            if (DropDown_category.SelectedValue == "Ventilator")
+            {
+                cmd.Parameters.Add(new SqlParameter("@categ", "VENT"));
+
+            }
+
+            if (txt_amount.Text.Length<1)
+            {
+                add_success = false;
+                error_amount.Text = "enter offered amount of 0 or more";
+            }
+
+            if (txt_price.Text.Length < 1)
+            {
+                add_success = false;
+                error_price.Text = "enter price";
+            }
+            if (txt_GTIN.Text.Length == 8 || txt_GTIN.Text.Length == 12 || txt_GTIN.Text.Length == 13 || txt_GTIN.Text.Length == 14)
+            {
+                
+            }
+            else
+            {
+                
+                add_success = false;
+                error_GTIN.Text = "Please enter a valid GTIN of length 8, 12, 13 or 14.";
+            }
+
+            conn.Open();
+            try
+            {
+                SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+                add_success = false;
+            }
+
+            if (add_success)
+            {
+                Response.Write("<script>alert('Product posted successfully.');</script>");
+
+
+            }
+
 
         }
 

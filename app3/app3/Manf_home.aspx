@@ -119,21 +119,27 @@
 			            <td> <asp:TextBox ID="txt_desc" runat="server"></asp:TextBox><br /></td>
 		            </tr>
 		            <tr>
-			            <td><asp:Label ID="Label3" runat="server" Text="Price: " class="objects"></asp:Label> </td>
-			            <td> <asp:TextBox ID="txt_price" runat="server"></asp:TextBox> <br /></td>
+			            <td><asp:Label ID="Label3" runat="server" Text="Unit Price: " class="objects"></asp:Label> </td>
+			            <td> <asp:TextBox ID="txt_price" runat="server"></asp:TextBox> 
+                            <asp:Label ID="error_price" runat="server"></asp:Label>
+                            </td>
 		            </tr>
 		            <tr>
 			            <td><asp:Label ID="Label4" runat="server" Text="Category:" class="objects"></asp:Label></td>
-			            <td>   <asp:RadioButtonList ID="radiolist_category" runat="server"></asp:RadioButtonList>
-                     </td>
+			            <td><asp:DropDownList ID="DropDown_category" runat="server"></asp:DropDownList></td>
 		            </tr>
 		            <tr>
 			            <td>  <asp:Label ID="Label5" runat="server" Text="Amount Available:" class="objects"></asp:Label> </td>
-			            <td> <asp:TextBox ID="txt_amount" runat="server"></asp:TextBox></td>
+			            <td> <asp:TextBox ID="txt_amount" runat="server"></asp:TextBox>
+                            <asp:Label ID="error_amount" runat="server"></asp:Label>
+
+			            </td>
 		            </tr>
                     <tr>
-			            <td>  <asp:Label ID="Label6" runat="server" Text="GTIN" class="objects"></asp:Label> </td>
-			            <td>  <asp:TextBox ID="txt_GTIN" runat="server"></asp:TextBox></td>
+			            <td>  <asp:Label ID="Label6" runat="server" Text="Global Trade Number" class="objects"></asp:Label> </td>
+			            <td>  <asp:TextBox ID="txt_GTIN" runat="server"></asp:TextBox>
+                            <asp:Label ID="error_GTIN" runat="server"></asp:Label>
+			            </td>
 		            </tr>
                      <tr>
 			            <td><asp:Button ID="Button3" runat="server" Text="Add a New Product" OnClick="addProduct"/></td>
