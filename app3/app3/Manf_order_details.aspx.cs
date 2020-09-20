@@ -13,7 +13,7 @@ namespace app3
 {
     public partial class Manf_order_details : System.Web.UI.Page
     {
-        string orderId;
+        string orderId ;
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
