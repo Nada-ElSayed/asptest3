@@ -59,18 +59,20 @@
           </div>
         </section>
             
-          <div class="container" style="position: absolute;  bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
-              <div>
+          <div class="container" style=" bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
+             
+                 <div>
                 <div id ="orderCard" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
+
                 </div>
                 <br />
-
-                  <asp:Button class="btn-primary" ID="myButton" runat="server" Text="Update Status" />
-
-
+    <div id="hidden" runat="server">    </div> 
+          <div id="hiddenButton" runat="server"></div>
                 
                 <asp:Label ID="Label2" runat="server" ></asp:Label>
-            </div>    
+            </div> 
+
+            
           </div> 
 
         
@@ -82,3 +84,12 @@
     </form>
 </body>
 </html>
+  <%--     <div>
+                  <asp:DropDownList ID="status" runat="server">
+                      <asp:ListItem Value="1" Text="Please select the status of the order"></asp:ListItem>
+                      <asp:ListItem Value="Pending" Text="Pending"></asp:ListItem>
+                       <asp:ListItem Value="Out for Delivery" Text="Out for Delivery"></asp:ListItem>
+                      <asp:ListItem Value="Delivered" Text="Delivered"></asp:ListItem>
+               
+                  </asp:DropDownList></div>--%>
+                  <%--<asp:Button class="btn-primary" ID="myButton" runat="server" Text="Update Status" />--%>
