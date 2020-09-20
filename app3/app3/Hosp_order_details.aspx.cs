@@ -123,6 +123,7 @@ namespace app3
                         Button myButton = new Button();
                         //add text to button
                         myButton.Text = "Cancel Order";
+                        myButton.CssClass = "btn-primary";
                         //Add a Button Click Event handler  
                         myButton.Click += new EventHandler(cancelOrder); //ONclick
                                                                          //add order id to the button so the cancel order procedure can know which order will be canceled when we click on button
