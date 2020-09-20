@@ -18,7 +18,6 @@ namespace app3
         int amount = 0;
 
 
-
         string ProdName;
         string Prodprice;
         string GTIN;
@@ -64,9 +63,9 @@ namespace app3
 
                 if (rdr.GetSqlBoolean(rdr.GetOrdinal("available")))
                 {
-                    availability = "available";
+                    availability = "Available";
                 }
-                else availability = "not available";
+                else availability = "Not Available";
 
 
                 
@@ -139,7 +138,7 @@ namespace app3
             }
             else
             {
-                Response.Write("<script>alert('Product does exist.');</script>");
+                Response.Write("<script>alert('Product Does exist.');</script>");
             }
 
         }
@@ -228,7 +227,7 @@ namespace app3
 
             if (edit_success)
             {
-                Response.Write("<script>alert('Product edited successfully.');</script>");
+                Response.Write("<script>alert('Product Edited Successfully.');</script>");
 
             }
            
