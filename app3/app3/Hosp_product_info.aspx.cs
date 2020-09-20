@@ -151,6 +151,8 @@ namespace app3
 
             conn.Open();
             Label1.Text = "Order Placed Successfully!";
+            CleartextBoxes(form1);
+
             try
             {
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -170,6 +172,25 @@ namespace app3
             Response.Redirect("Hosp_home.aspx");
         }
 
+        public void CleartextBoxes(Control parent)
+
+        {
+
+            foreach (Control c in parent.Controls)
+
+            {
+                if ((c.GetType() == typeof(TextBox)))
+                {
+
+                    ((TextBox)(c)).Text = "";
+                }
+
+                if (c.HasControls())
+                {
+                    CleartextBoxes(c);
+                }
+            }
+        }
 
     }
 }
