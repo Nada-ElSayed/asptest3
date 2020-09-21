@@ -48,7 +48,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#">Language</a></li>
 
@@ -86,7 +86,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li>Manufacturer Home</li>
         </ol>
         <h2>Manufacturer Home</h2>
