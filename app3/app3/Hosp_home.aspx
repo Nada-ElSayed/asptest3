@@ -48,9 +48,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Language</a></li>
+            <%--<li><a href="#">Language</a></li>--%>
 
        <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
