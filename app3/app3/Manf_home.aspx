@@ -44,13 +44,13 @@
   <header id="header" class="header-inner-pages">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">ReachOut</a></h1>
+      <h1 class="logo"><a href="Home.html">ReachOut</a></h1>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          
             <li><a href="#about">About</a></li>
-            <li><a href="#">Language</a></li>
+           <!-- <li><a href="#">Language</a></li> -->
 
        <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
