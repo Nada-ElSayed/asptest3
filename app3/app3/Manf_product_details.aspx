@@ -28,7 +28,7 @@
     
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Template Main CSS File -->
-  <link href="assets/css/HospH.css" rel="stylesheet"/>
+  <link href="assets/css/ManfHome.css" rel="stylesheet"/>
 
   <!-- =======================================================
   * Template Name: Valera - v2.1.0
@@ -48,9 +48,9 @@
             <div id="breadcrumbs" class="breadcrumbs">
               <div class="container">
 
-                <ol style="color:#007bff">
-                  <li >
-                  Manufacturer's Home</li>
+                <ol>
+                   <li> <a href="Manf_home.aspx">Manufacturer Home</a></li>
+
                   <li>Product Information</li>
                 </ol>
                <div style="display:flex">
@@ -62,7 +62,7 @@
           </div>
         </section>
             
-          <div class="container" style="position: absolute;  bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
+          <div class="container" style=" bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;  padding-bottom: 60px">
               <div>
                 <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
                </div>

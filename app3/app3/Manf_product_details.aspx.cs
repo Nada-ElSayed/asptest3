@@ -229,8 +229,12 @@ namespace app3
             {
                 Response.Write("<script>alert('Product Edited Successfully.');</script>");
 
+
+
+
+
             }
-           
+
 
         }
 
@@ -243,10 +247,7 @@ namespace app3
             Textgtin.Text = "";
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Hosp_home.aspx");
-        }
+      
 
     }
     }

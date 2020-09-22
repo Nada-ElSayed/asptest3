@@ -48,7 +48,7 @@
             <div id="breadcrumbs" class="breadcrumbs">
               <div class="container">
 
-                <ol style="color:#007bff">
+                <ol>
                     <li >
                   <a href="Manf_home.aspx">Manufacturer Home</a></li>
                   <li>Order Information</li>

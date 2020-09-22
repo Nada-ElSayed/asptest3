@@ -77,13 +77,17 @@
     </div>
     
   </header><!-- End Header -->
+   <form id="form1" runat="server">
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
+        <ol>
+          <li><a href="Home.html">Home</a></li>
+          <li>Registeration</li>
+        </ol>
         <h2> Register as a Provider </h2>
 
       </div>
@@ -92,7 +96,6 @@
     <section class="inner-page">
       <div class="container">
           
-          <form id="form1" runat="server">
 
               <div >
          
@@ -138,13 +141,14 @@
 
 
             </div>
-          </form>
         
           
       </div>
     </section>
 
   </main><!-- End #main -->
+ </form>
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
