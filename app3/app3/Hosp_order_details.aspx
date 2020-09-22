@@ -50,9 +50,9 @@
               <div class="container">
 
                 <ol style="color:#007bff">
-                  <li >
+                  <li>
                   <a href="Hosp_home.aspx">Hospital Home</a></li>
-                  <li>Order Information</li>
+                  <li style="color:black">Order Information</li>
                 </ol>
               
 
