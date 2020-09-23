@@ -44,13 +44,12 @@
   <header id="header" class="header-inner-pages">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">ReachOut</a></h1>
+      <h1 class="logo"><a href="Home.html">ReachOut</a></h1>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Language</a></li>
+         
 
        <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
@@ -78,13 +77,17 @@
     </div>
     
   </header><!-- End Header -->
+   <form id="form1" runat="server">
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
+        <ol>
+          <li><a href="Home.html">Home</a></li>
+          <li>Registeration</li>
+        </ol>
         <h2> Register as a Provider </h2>
 
       </div>
@@ -93,7 +96,6 @@
     <section class="inner-page">
       <div class="container">
           
-          <form id="form1" runat="server">
 
               <div >
          
@@ -139,13 +141,14 @@
 
 
             </div>
-          </form>
         
           
       </div>
     </section>
 
   </main><!-- End #main -->
+ </form>
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

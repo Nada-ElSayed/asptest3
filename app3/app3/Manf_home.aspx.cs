@@ -203,13 +203,13 @@ namespace Reachout1
             if (txt_amount.Text.Length<1)
             {
                 add_success = false;
-                error_amount.Text = "enter offered amount of 0 or more";
+                error_amount.Text = "Enter fffered amount of 0 or more";
             }
 
             if (txt_price.Text.Length < 1)
             {
                 add_success = false;
-                error_price.Text = "enter price";
+                error_price.Text = "Enter Price";
             }
             if (txt_GTIN.Text.Length == 8 || txt_GTIN.Text.Length == 12 || txt_GTIN.Text.Length == 13 || txt_GTIN.Text.Length == 14)
             {
@@ -236,13 +236,35 @@ namespace Reachout1
 
             if (add_success)
             {
-                Response.Write("<script>alert('Product posted successfully.');</script>");
-
-
+                Response.Write("<script>alert('Product Posted Successfully.');</script>");
+                CleartextBoxes(form1);
             }
 
 
         }
+
+        public void CleartextBoxes(Control parent)
+
+        {
+
+            foreach (Control c in parent.Controls)
+
+            {
+                if ((c.GetType() == typeof(TextBox)))
+                {
+
+                    ((TextBox)(c)).Text = "";
+                }
+                
+                if (c.HasControls())
+                {
+                    CleartextBoxes(c);
+                }
+            }
+        }
+
+
+
 
 
     }

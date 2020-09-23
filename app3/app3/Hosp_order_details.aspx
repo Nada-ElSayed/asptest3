@@ -50,9 +50,9 @@
               <div class="container">
 
                 <ol style="color:#007bff">
-                  <li >
-                  Hospital Home</li>
-                  <li>Order Information</li>
+                  <li>
+                  <a href="Hosp_home.aspx">Hospital Home</a></li>
+                  <li style="color:black">Order Information</li>
                 </ol>
               
 
@@ -60,7 +60,7 @@
           </div>
         </section>
             
-          <div class="container" style="position: absolute;  bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
+          <div class="container" style=" bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
               <div>
                 <div id ="orderCard" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
                 </div>

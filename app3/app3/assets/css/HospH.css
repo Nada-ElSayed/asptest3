@@ -18,13 +18,13 @@ body {
 }
 
 a {
-  color: #ff7f5d;
+    color: #007bff;
 }
 
-a:hover {
-  color: #ffa790;
-  text-decoration: none;
-}
+    a:hover {
+        color: #007bffc9;
+        text-decoration: none;
+    }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
