@@ -145,8 +145,8 @@ namespace app3
         }
         protected void editProduct(object sender, EventArgs e)
         {
+            bool edit_success = true;
 
-            
             string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -188,8 +188,15 @@ namespace app3
             }
             if (Textgtin.Text.Length > 0)
             {
-                cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
-
+                if (Textgtin.Text.Length == 8 || Textgtin.Text.Length > 12 || Textgtin.Text.Length > 13 || Textgtin.Text.Length > 14)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+                }
+                else
+                {
+                    edit_success = false;
+                    Label1.Text = "invalid GTIN. Must be of length 8, 12, 13 or 14";
+                }
             }
             else
             {
@@ -211,10 +218,9 @@ namespace app3
                 cmd.Parameters.Add(new SqlParameter("@categ", "VENT"));
 
             }
-            bool edit_success = true;
+            
 
             conn.Open();
-            Label1.Text = "Product Updated Successfully!";
             try
             {
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -235,7 +241,7 @@ namespace app3
 
         }
 
-        protected void revertChanges(object sender, EventArgs e)
+        protected void cancelChanges(object sender, EventArgs e)
         {
             Textpname.Text = "";
             Textinfo.Text = "";

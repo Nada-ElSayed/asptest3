@@ -35,7 +35,7 @@
                 <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
                 </div>
                   <br />
-                  <asp:Label ID="Label1" runat="server" ></asp:Label>
+                  
                   <br />
                   <asp:Label ID="Label2" runat="server" Text="Product Name"></asp:Label>
                   <asp:TextBox ID="Textpname" runat="server"></asp:TextBox>
@@ -54,9 +54,10 @@
                   <br />
                   <asp:Label ID="Label7" runat="server" Text="Global Trade Number"></asp:Label>
                   <asp:TextBox ID="Textgtin" runat="server"></asp:TextBox>
+                  <asp:Label ID="Label1" runat="server" ></asp:Label>
                   <br />
                   <asp:Button ID="Button1" runat="server" Text="Submit Changes" OnClick="editProduct"/>
-                  <asp:Button ID="Button2" runat="server" Text="Revert Changes" OnClick="revertChanges"/>
+                  <asp:Button ID="Button2" runat="server" Text="Cancel Changes" OnClick="cancelChanges"/>
               </div>    
           </div> 
 
