@@ -108,7 +108,7 @@
                       <td>
                   <asp:Button ID="Button1" runat="server" Text="Submit Changes" OnClick="editProduct"/></td>
                       <td>
-                  <asp:Button ID="Button2" runat="server" Text="Revert Changes" OnClick="revertChanges"/></td>
+                  <asp:Button ID="Button2" runat="server" Text="Cancel Changes" OnClick="cancelChanges"/></td>
                     </tr>
 
                 </tbody>

@@ -92,14 +92,8 @@ namespace Reachout1
                 }
                 catch (SqlException ex)
                 {
-                    if (ex.Number == 2627 || ex.Number == 2601)
-                    {
-                        txtWarning.Text = "This Username is Already Taken";
-                    }
-                    else
-                    {
-                        txtWarning.Text = ("Please choose another username (below 30 characters).error:" + ex.Number);
-                    }
+                    txtWarning.Text = ("Error:" + ex.Number + " "+ ex.Message);
+
 
                 }
             }

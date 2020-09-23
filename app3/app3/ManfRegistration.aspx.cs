@@ -97,16 +97,15 @@ namespace Reachout1
                 }
                 catch (SqlException ex)
                 {
-                    if (ex.Number == 2627 || ex.Number == 2601)
-                    {
-                        //txtMessages.Text = "this username is already taken";
-                        txtWarning.Text = "This username is already taken";
-                    }
-                    else
-                    {
-                       // txtMessages.Text = ("please choose another username (below 30 characters).error:" + ex.Number);
-                        txtWarning.Text = ("please choose another username (below 30 characters).error:" + ex.Number);
-                    }
+                    //if (ex.Number == 2627 || ex.Number == 2601 || ex.Number== 50007)
+                    //{
+                    //txtMessages.Text = "this username is already taken";
+                    //  txtWarning.Text = "This username is already taken";
+                    //}
+                    //else
+                    //{
+                    // txtMessages.Text = ("please choose another username (below 30 characters).error:" + ex.Number);
+                    txtWarning.Text = ("Error:" + ex.Number + " " + ex.Message);                    //}
 
                 }
             }
