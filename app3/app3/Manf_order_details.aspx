@@ -59,6 +59,7 @@
           </div>
         </section>
             
+
           <div class="container" style=" bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;">
              
                  <div>
@@ -74,6 +75,8 @@
 
             
           </div> 
+
+
 
         
         </main>

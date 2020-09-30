@@ -105,7 +105,7 @@
         <div class="faq-list">
           <ul style="padding-left:0;">
             <li data-aos="fade-up" >
-              <a data-toggle="collapse" class="collapse" href="#faq-list-1">Add A new Product? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <a data-toggle="collapse" class="collapse" href="#faq-list-1">Add a new product? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
                      <table cellpadding="2" >
                              
