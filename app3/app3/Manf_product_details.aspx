@@ -50,19 +50,21 @@
 
                 <ol>
                    <li> <a href="Manf_home.aspx">Manufacturer Home</a></li>
-
                   <li>Product Information</li>
                 </ol>
+
                <div style="display:flex">
                 <h3>Category:   </h3>
                 <asp:Literal ID="liTi" runat="server" Text=" "></asp:Literal> 
+
              </div>
 
             </div>
+
           </div>
         </section>
             
-          <div class="container" style=" bottom: 0;    top: 0;    left: 15px;    right: 15px;    display: flex;    justify-content: center;    align-items: center;    flex-direction: column;    text-align: center;  padding-bottom: 60px">
+          <div class="container" style="justify-content: center;    align-items: center;">
               <div>
                 <div id ="prodsList" runat ="server" style="display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
                </div>
@@ -77,10 +79,13 @@
         <div class="faq-list">
           <ul style="padding-left:0;">
             <li data-aos="fade-up" >
-              <a data-toggle="collapse" class="collapse" href="#faq-list-1">Add a new product? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                      <p style="  font-weight:600; color: #007bff;padding-left:10px;
+    background-color: transparent">Edit Product?</p>
+              <div id="faq-list-1" class="collapse show" data-parent=".faq-list" style="padding-left: 30px;" >
+            
                      <table cellpadding="2" >
                      
+                 
                  
                              
 	            <tbody>

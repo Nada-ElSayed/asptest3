@@ -99,7 +99,7 @@ namespace app3
                 conn.Close();
                 Literal listed = new Literal();
 
-                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0'>" +
+                listed.Text = "<div class='col-lg-4 col-md-6 mt-4 mt-md-0' style='margin: 0 auto;' > " +
                                 "<div class='icon-box' " +
                                             "style='" +
                                             "padding: 30px;" +
@@ -108,7 +108,8 @@ namespace app3
                                             "background: #fff;" +
                                             "box-shadow: 0 16px 29px 0 rgba(68, 88, 144, 0.2);" +
                                             "transition: all 0.3s ease-in-out;" +
-                                            "height: 90%;' >" +
+                                            "height: 90%;" +
+                                            "text-align:center;' >" +
                                 "<h4 class='prodName' style='" +
 
                                                     "font-weight: 700;" +

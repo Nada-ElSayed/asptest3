@@ -79,7 +79,7 @@ namespace Reachout1
                 {
                     Console.WriteLine("Failed");
 
-                    Fail1.Text = "Login failed. Please check username and password.";
+                    Fail1.Text = "Login failed. Please check username or Password.";
 
                 }
             }catch(Exception ex)

@@ -61,7 +61,7 @@ namespace Reachout1
                 else descrip = "__";
 
 
-                liTi.Text = "<h3> Ventilators </h3>";
+                liTi.Text = "<h3> My Products </h3>";
                 Panel card = new Panel();
                 card.CssClass = "icon-box";
                 Button MyButton = new Button();
@@ -82,7 +82,7 @@ namespace Reachout1
                 lbl_price.Text = "<div class='des'>" + "Unit Price: EGP" + Prodprice + "</div>";
                 card.Controls.Add(lbl_price);
                 Label lbl_descrip = new Label();
-                lbl_descrip.Text = "<div class='des'>" + "description: " + descrip + "</div> </br>";
+                lbl_descrip.Text = "<div class='des'>" + "Description: " + descrip + "</div> </br>";
                 card.Controls.Add(lbl_descrip);
                 card.Controls.Add(MyButton);
 
@@ -119,9 +119,9 @@ namespace Reachout1
                 string date = (rdr.GetSqlDateTime(rdr.GetOrdinal("date"))).ToString();
 
 
-                liTi.Text = "Placed Orders";
+                liTi.Text = "<h3> Placed Orders </ h3 >";
                 Button MyButton = new Button();
-                MyButton.CssClass = "btn-primary";
+                MyButton.CssClass = "btn-primary btn-info";
                 MyButton.CommandName = "Click";
                 //MyButton.CommandArgument = orderno.ToString();
                 //MyButton.Command += cancelOrder;

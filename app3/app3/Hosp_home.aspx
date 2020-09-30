@@ -37,6 +37,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+ <form id="form1" runat="server">
 
 <body>
 
@@ -85,7 +86,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="Home.html">Home</a></li>
           <li>Products</li>
         </ol>
         <h2>Browse for Products</h2>
@@ -96,7 +97,6 @@
     <section class="inner-page">
       <div class="container">
           
-          <form id="form1" runat="server">
 
               <div style="overflow-x:auto;width:100%" >
 
@@ -132,7 +132,6 @@
                   
                   
           </div>   
-          </form>
           
             
               
@@ -191,5 +190,7 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+               </form>
+
 
 </html>

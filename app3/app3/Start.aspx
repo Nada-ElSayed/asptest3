@@ -39,7 +39,7 @@
 </head>
     
     
-<body>
+<body style="font-family: 'Open Sans', sans-serif;" >
 	
 	<div class="limiter">
 		<div class="container-login100">

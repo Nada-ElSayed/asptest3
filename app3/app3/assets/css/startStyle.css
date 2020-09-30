@@ -43,7 +43,6 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -69,7 +68,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -251,7 +249,6 @@ text-align: center;"
 }
 
 .label-input {
-  font-family: Poppins-Regular;
   font-size: 15px;
   color: #808080;
   line-height: 1.2;
@@ -266,7 +263,6 @@ text-align: center;"
 
 /*---------------------------------------------*/
 .input100 {
-  font-family: Poppins-Regular;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -347,7 +343,6 @@ input.input100 {
   background-color: #57b846;
   border-radius: 25px;
 
-  font-family: Poppins-Regular;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
@@ -412,7 +407,6 @@ input.input100 {
   right: 2px;
   pointer-events: none;
 
-  font-family: Poppins-Medium;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
