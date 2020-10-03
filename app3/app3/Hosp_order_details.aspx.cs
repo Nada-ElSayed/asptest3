@@ -70,6 +70,8 @@ namespace app3
                         int quantity = rdr.GetInt32(rdr.GetOrdinal("quantity"));
                         //Get the value of the attribute name from the output of the procedure
                         string manfName = rdr.GetString(rdr.GetOrdinal("name"));
+                        //Get the value of the attribute product name from the output of the procedure
+                        string pName = rdr.GetString(rdr.GetOrdinal("pname"));
 
                         //before we output the order details to the form, we need the product name by using a SQL query
                         cmd = new SqlCommand("select * from Products where id=" + prodno, conn);
@@ -106,6 +108,7 @@ namespace app3
                                                          "margin-bottom: 0;" +
                                                          "padding-bottom: 1px'> " +
                            "<p> Product Number: " + prodno + "</p>" +
+                           "<p> Product Name: " + pName + "</p>" +
                            "<p> Ordered On: " + date + "</p>" +
                            "<p> To be provided by: " + manfName + " </p>" +
                            "<p> Quantity:" + quantity + "</p>" +

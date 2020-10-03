@@ -73,7 +73,7 @@
                 <br />
                 <asp:RangeValidator ID="RangeValidator1" ControlToValidate="orderamountTXT" Type="Integer" runat="server" ErrorMessage="RangeValidator" MinimumValue="1" 
                 EnableClientScript="false">       </asp:RangeValidator>
-                
+                <br />
                 <asp:Button class="btn-primary" ID="Button1" runat="server" Text="Place Order" onClick="placeOrder"/>
                 <asp:Label ID="Label2" runat="server" ></asp:Label>
             </div>    

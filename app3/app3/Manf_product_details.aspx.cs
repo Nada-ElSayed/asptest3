@@ -178,8 +178,15 @@ namespace app3
             }
             if (Textamount.Text.Length>0)
             {
-                cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
-
+                if (Int64.Parse(Textamount.Text) < 0)
+                {
+                    edit_success = false;
+                    Label1.Text = "invalid amount. Must be greater than 0.";
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
+                }
             }
             else
             {
@@ -190,7 +197,16 @@ namespace app3
             {
                 if (Textgtin.Text.Length == 8 || Textgtin.Text.Length > 12 || Textgtin.Text.Length > 13 || Textgtin.Text.Length > 14)
                 {
-                    cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+                    try{
+                        Int64.Parse(Textgtin.Text);
+                        cmd.Parameters.Add(new SqlParameter("@gtin", Textgtin.Text));
+                    }
+                    catch(Exception ex)
+                    {
+                        edit_success = false;
+                        Label1.Text = "invalid GTIN. Must only consist of numbers.";
+                    }
+                    
                 }
                 else
                 {

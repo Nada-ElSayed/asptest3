@@ -68,6 +68,8 @@ namespace app3
                         string hospName = rdr.GetString(rdr.GetOrdinal("name"));
                         //Get the value of the attribute address from the output of the procedure
                         string hospAddress = rdr.GetString(rdr.GetOrdinal("address"));
+                        //Get the value of the attribute product name from the output of the procedure
+                        string pName = rdr.GetString(rdr.GetOrdinal("pname"));
 
                         //before we output the order details to the form, we need the product name by using a SQL query
                         cmd = new SqlCommand("select * from Products where id=" + prodno, conn);
@@ -106,6 +108,7 @@ namespace app3
                                                          "margin-bottom: 0;" +
                                                          "padding-bottom: 1px'> " +
                            "<p> Product Number: " + prodno + "</p>" +
+                           "<p> Product Name: " + pName + "</p>" +
                            "<p> Ordered On: " + date + "</p>" +
                            "<p> Customer Name: " + hospName + " </p>" +
                            "<p> Shipping Address: " + hospAddress + " </p>" +
@@ -218,14 +221,14 @@ namespace app3
                     else
                     {
                         //if the row has not been found then no order details can be found matching this order id and this user name
-                        Response.Write("Page not found.");
+                        Response.Write("<script>Page not found.</script>");
                     }
                 }
             }
             else
             {
                 //If no order id obtained from request
-                Response.Write("NO DATA PROVIDED OR COULD NOT BE READ");
+                Response.Write("<script>NO DATA PROVIDED OR COULD NOT BE READ</script>");
             }
         }
      

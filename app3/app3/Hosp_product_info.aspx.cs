@@ -150,19 +150,27 @@ namespace app3
             cmd.Parameters.Add(new SqlParameter("@product", Prodserialno));
 
             conn.Open();
-            Label1.Text = "Order Placed Successfully!";
+           // Label1.Text = "Order Placed Successfully!";
             CleartextBoxes(form1);
-
+            bool success = true;
             try
             {
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+              
+
             }
             catch (Exception ex)
             {
                 Label1.Text = ex.Message;
+                success = false;
             }
-          //  Response.Redirect(Request.RawUrl);
-            
+            if (success)
+            {
+                Response.Write("<script>if(confirm('Order Placed Successfully!')){window.location.reload();}</script>");
+            }
+
+            // Response.Redirect(Request.RawUrl);
+
 
 
         }

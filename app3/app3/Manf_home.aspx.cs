@@ -203,7 +203,7 @@ namespace Reachout1
             if (txt_amount.Text.Length<1)
             {
                 add_success = false;
-                error_amount.Text = "Enter fffered amount of 0 or more";
+                error_amount.Text = "Enter offered amount of 0 or more";
             }
 
             if (txt_price.Text.Length < 1)
