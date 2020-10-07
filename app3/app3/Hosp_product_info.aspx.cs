@@ -166,7 +166,8 @@ namespace app3
             }
             if (success)
             {
-                Response.Write("<script>if(confirm('Order Placed Successfully!')){window.location.reload();}</script>");
+
+                Response.Write("<script>if(confirm('Order Placed Successfully!')){Response.Redirect(Request.RawUrl);}</script>");
             }
 
             // Response.Redirect(Request.RawUrl);

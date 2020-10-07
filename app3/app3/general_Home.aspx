@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HospOrders.aspx.cs" Inherits="Reachout1.HospOrders" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="general_Home.aspx.cs" Inherits="app3.general_Home" %>
 
 <!DOCTYPE html>
 
@@ -9,9 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
-
-            <asp:DataList ID="DataList1" runat="server"></asp:DataList>
         </div>
     </form>
 </body>

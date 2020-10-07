@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HospOrders.aspx" />
+    <Content Include="general_Home.aspx" />
     <Content Include="HospRegistration.aspx" />
     <Content Include="Hosp_home.aspx" />
     <Content Include="Hosp_order_details.aspx" />
@@ -75,7 +75,6 @@
     <Content Include="Hosp_ViewOrders.aspx" />
     <Content Include="index.html" />
     <Content Include="inner-page.html" />
-    <Content Include="ManfOrders.aspx" />
     <Content Include="ManfRegistration.aspx" />
     <Content Include="Manf_home.aspx" />
     <Content Include="Manf_order_details.aspx" />
@@ -88,12 +87,12 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HospOrders.aspx.cs">
-      <DependentUpon>HospOrders.aspx</DependentUpon>
+    <Compile Include="general_Home.aspx.cs">
+      <DependentUpon>general_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HospOrders.aspx.designer.cs">
-      <DependentUpon>HospOrders.aspx</DependentUpon>
+    <Compile Include="general_Home.aspx.designer.cs">
+      <DependentUpon>general_Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="HospRegistration.aspx.cs">
       <DependentUpon>HospRegistration.aspx</DependentUpon>
@@ -129,13 +128,6 @@
     </Compile>
     <Compile Include="Hosp_ViewOrders.aspx.designer.cs">
       <DependentUpon>Hosp_ViewOrders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManfOrders.aspx.cs">
-      <DependentUpon>ManfOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManfOrders.aspx.designer.cs">
-      <DependentUpon>ManfOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManfRegistration.aspx.cs">
       <DependentUpon>ManfRegistration.aspx</DependentUpon>
