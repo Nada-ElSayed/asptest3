@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+             <asp:Literal ID="liTi" runat="server" Text=""></asp:Literal>
+                  <asp:Panel ID="prodsList" runat="server"></asp:Panel>
+                         
         </div>
     </form>
 </body>
