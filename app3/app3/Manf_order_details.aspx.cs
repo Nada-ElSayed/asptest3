@@ -68,8 +68,7 @@ namespace app3
                         string hospName = rdr.GetString(rdr.GetOrdinal("name"));
                         //Get the value of the attribute address from the output of the procedure
                         string hospAddress = rdr.GetString(rdr.GetOrdinal("address"));
-                        //Get the value of the attribute product name from the output of the procedure
-                        string pName = rdr.GetString(rdr.GetOrdinal("pname"));
+                   
 
                         //before we output the order details to the form, we need the product name by using a SQL query
                         cmd = new SqlCommand("select * from Products where id=" + prodno, conn);
@@ -78,7 +77,7 @@ namespace app3
                         conn.Open();
                         rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
                         rdr.Read();
-                        String productName = rdr.GetString(rdr.GetOrdinal("name"));
+                        String pName = rdr.GetString(rdr.GetOrdinal("name"));
                         conn.Close();
 
 
@@ -228,7 +227,8 @@ namespace app3
             else
             {
                 //If no order id obtained from request
-                Response.Write("<script>NO DATA PROVIDED OR COULD NOT BE READ</script>");
+
+               Response.Write("<script>NO DATA PROVIDED OR COULD NOT BE READ</script>");
             }
         }
      
@@ -260,7 +260,7 @@ namespace app3
 
                     //To navigate to another webpage
                     Response.Write("<script>alert('Order status has been changed');</script>");
-                    Response.Write("<script>location.href='Manf_order_details.aspx'</script>");
+                    Response.Write("<script>location.href='Manf_order_details.aspx?oid=' + orderId.ToString();</script>");
                 }
                 else
                 {

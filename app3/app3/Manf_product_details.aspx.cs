@@ -132,10 +132,12 @@ namespace app3
                                 "</div>";
 
                 prodsList.Controls.Add(listed);
-
-
-
-
+                Button myButton = new Button();
+                myButton.CssClass = "btn-primary";
+                myButton.Text = "Delete product";
+                myButton.Click +=  new EventHandler(deleteProduct);
+                myButton.CommandArgument = Prodserialno.ToString();
+                con.Controls.Add(myButton);
             }
             else
             {
@@ -143,6 +145,43 @@ namespace app3
             }
 
         }
+
+        private void deleteProduct(object sender, EventArgs e)
+        {
+            try
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["MyDbConn"].ToString();
+                SqlConnection conn = new SqlConnection(connStr);
+
+                //create a new SQL command which takes as parameters the name of the stored procedure and the SQLconnection name
+                SqlCommand cmd = new SqlCommand("deleteManufacturerProducts", conn);
+
+                //Preparing input for the procedure
+                string username = (String)Session["field1"];
+                Button b = (Button)sender;
+                int productNo = Int32.Parse(b.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@username", username));
+                cmd.Parameters.Add(new SqlParameter("@product_id", productNo));
+
+                //Executing the SQLCommand
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                //To navigate to another webpage
+                Response.Write("<script>alert('Your product has been deleted.');</script>");
+                Response.Write("<script>location.href='Manf_home.aspx'</script>");
+            }
+            catch (Exception e1)
+            {
+                //Response.Write(e1.Message);               
+                Button b = (Button)sender;
+                int productNo = Int32.Parse(b.CommandArgument);
+                Response.Write(productNo);
+            }
+        }
+
         protected void editProduct(object sender, EventArgs e)
         {
             bool edit_success = true;
