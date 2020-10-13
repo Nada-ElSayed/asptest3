@@ -175,10 +175,7 @@ namespace app3
             }
             catch (Exception e1)
             {
-                //Response.Write(e1.Message);               
-                Button b = (Button)sender;
-                int productNo = Int32.Parse(b.CommandArgument);
-                Response.Write(productNo);
+                Response.Write(e1.Message);               
             }
         }
 
