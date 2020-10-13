@@ -86,7 +86,7 @@
         <div class="faq-list">
           <ul style="padding-left:0;">
             <li data-aos="fade-up" >
-                      <p style="  font-weight:600; color: #007bff;padding-left:10px;
+                      <p style="  font-size: 20px; font-weight:600; color: #007bff;padding-left:10px;
     background-color: transparent">Edit Product?</p>
               <div id="faq-list-1" class="collapse show" data-parent=".faq-list" style="padding-left: 30px;" >
             
