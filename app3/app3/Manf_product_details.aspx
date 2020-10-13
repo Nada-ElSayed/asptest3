@@ -71,7 +71,12 @@
                    
 
                   <br />
-                      <div runat="server" id="con"> </div>
+                      <div runat="server" id="con" style="
+                        margin-top: 0;
+                        margin-bottom: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"> </div>
 
                   <asp:Label ID="Label1" runat="server" ></asp:Label>
                   <br />
