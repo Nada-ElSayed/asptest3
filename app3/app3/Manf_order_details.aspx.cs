@@ -259,8 +259,10 @@ namespace app3
                     conn.Close();
 
                     //To navigate to another webpage
-                    Response.Write("<script>alert('Order status has been changed');</script>");
-                    Response.Write("<script>location.href='Manf_order_details.aspx?oid=' + orderId.ToString();</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(),
+                    "alert",
+                    "alert('Order status has been changed');window.location='Manf_home.aspx';",
+                    true);
                 }
                 else
                 {

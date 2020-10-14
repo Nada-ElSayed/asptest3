@@ -214,14 +214,22 @@ namespace app3
             }
             if (Textamount.Text.Length>0)
             {
-                if (Int64.Parse(Textamount.Text) < 0)
+                try
                 {
-                    edit_success = false;
-                    Label1.Text = "invalid amount. Must be greater than 0.";
+                    if (Int64.Parse(Textamount.Text) < 0)
+                    {
+                        edit_success = false;
+                        Label1.Text = "invalid amount. Must be greater than 0.";
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    cmd.Parameters.Add(new SqlParameter("@amount", Textamount.Text));
+                    Response.Write("<script>alert('Please enter a valid amount');</script>");
+
                 }
             }
             else
@@ -276,6 +284,7 @@ namespace app3
             try
             {
                 SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Response.Write("<script>alert('Product Edited Successfully.');</script>");
 
             }
             catch (Exception ex)
@@ -284,15 +293,10 @@ namespace app3
 
             }
 
-            if (edit_success)
+           /* if (edit_success)
             {
                 Response.Write("<script>alert('Product Edited Successfully.');</script>");
-
-
-
-
-
-            }
+            }*/
 
 
         }
